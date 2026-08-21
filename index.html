@@ -1,0 +1,2627 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" /><link rel="canonical" href="https://cg-hourglass.github.io/hourglass-lua-api/" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>hourglass-gmsv Lua 脚本引擎</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u9996\u9875";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = "/hourglass-lua-api/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> hourglass-gmsv Lua 脚本引擎
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">首页</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#nl">NL 库</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#nlg">NLG 库</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#char">Char 库</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#battle">Battle 库</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pet">Pet 库</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#item">Item 库</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#obj">Obj 库</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#map">Map 库</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#field">Field 库</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#foreach">Foreach 库</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data">Data 库</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setup">Setup 库</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sql">SQL 库</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#protocol">Protocol 库</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#offline">Offline 库</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#debug">Debug 库</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_1">附录</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">待补充</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">全局函数</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">NL 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/Charset/">Charset</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/CreateAccount/">CreateAccount</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/CreateArgNpc/">CreateArgNpc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/CreateCharacter/">CreateCharacter</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/CreateNpc/">CreateNpc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/DelNpc/">DelNpc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/DeleteCharacter/">DeleteCharacter</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/GetErrorStr/">GetErrorStr</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegAfterWarpEvent/">RegAfterWarpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegBattleActionEvent/">RegBattleActionEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegBattleExitEvent/">RegBattleExitEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegBattleGetProfitEvent/">RegBattleGetProfitEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegBattleNewTurnStartEvent/">RegBattleNewTurnStartEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegBattleNextEnemyEvent/">RegBattleNextEnemyEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegBattleOverEvent/">RegBattleOverEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegBattlePVPMaxHpEvent/">RegBattlePVPMaxHpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegBattleSkillExpEvent/">RegBattleSkillExpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegBattleStartEvent/">RegBattleStartEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegBattleSurpriseEvent/">RegBattleSurpriseEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegCharActionEvent/">RegCharActionEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegDamageCalculateEvent/">RegDamageCalculateEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegDropEvent/">RegDropEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegEquipmentLevelEvent/">RegEquipmentLevelEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegFpConsumeEvent/">RegFpConsumeEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegGetExpEvent/">RegGetExpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegGetLoginPointEvent/">RegGetLoginPointEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegGetNextLevelExpEvent/">RegGetNextLevelExpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegHeadCoverEvent/">RegHeadCoverEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegItemDurabilityChangedEvent/">RegItemDurabilityChangedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegItemMaxDurabilityChangedEvent/">RegItemMaxDurabilityChangedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegItemOverLapEvent/">RegItemOverLapEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegItemString/">RegItemString</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegLevelUpEvent/">RegLevelUpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegLoginEvent/">RegLoginEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegLoginGateEvent/">RegLoginGateEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegLogoutEvent/">RegLogoutEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegMakeItemStringEvent/">RegMakeItemStringEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegMergeItemEvent/">RegMergeItemEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegNpcCreatedEvent/">RegNpcCreatedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegPartyEvent/">RegPartyEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegPetEquipCheckEvent/">RegPetEquipCheckEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegPetLevelUpEvent/">RegPetLevelUpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegPetRideImageEvent/">RegPetRideImageEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegProductSkillExpEvent/">RegProductSkillExpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegRightClickEvent/">RegRightClickEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegSealEvent/">RegSealEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegShutDownEvent/">RegShutDownEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegStallTradeEvent/">RegStallTradeEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegTalkEvent/">RegTalkEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegTechOptionEvent/">RegTechOptionEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegTitleChangedEvent/">RegTitleChangedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegVSEnemyCreateEvent/">RegVSEnemyCreateEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/RegWarpEvent/">RegWarpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/SetArgNpc/">SetArgNpc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/SetRemoteNpc/">SetRemoteNpc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nl/Ver/">Ver</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">NLG 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/CanTalk/">CanTalk</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/CharLook/">CharLook</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/CheckInFront/">CheckInFront</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/CheckTalkRange/">CheckTalkRange</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/DischargeParty/">DischargeParty</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/DropPlayer/">DropPlayer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/FindNpcByName/">FindNpcByName</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/FindNpcByPos/">FindNpcByPos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/FindUser/">FindUser</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/GetFloorPets/">GetFloorPets</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/GetFrontChar/">GetFrontChar</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/GetGameTime/">GetGameTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/GetIp/">GetIp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/GetMAC/">GetMAC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/GetMapName/">GetMapName</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/GetMapPlayer/">GetMapPlayer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/GetMapPlayerNum/">GetMapPlayerNum</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/GetMessage/">GetMessage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/GetOfflineEndTime/">GetOfflineEndTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/GetOfflineStartTime/">GetOfflineStartTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/GetOfflineStatus/">GetOfflineStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/GetOnLinePlayer/">GetOnLinePlayer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/GetStallItemPrice/">GetStallItemPrice</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/GetStallPetPrice/">GetStallPetPrice</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/GetStallStatus/">GetStallStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/GetString/">GetString</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/MapEffect/">MapEffect</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/MoveItem/">MoveItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/Rand/">Rand</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/SendGraphEvent/">SendGraphEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/SetAction/">SetAction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/SetHeadIcon/">SetHeadIcon</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/SetMapName/">SetMapName</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/SetObj/">SetObj</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/SetOfflinePlayer/">SetOfflinePlayer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/SetPal/">SetPal</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/SetShowName/">SetShowName</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/ShowTalked/">ShowTalked</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/ShowWindowTalked/">ShowWindowTalked</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/SortItem/">SortItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/SystemMessage/">SystemMessage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/SystemMessageToMap/">SystemMessageToMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/Talk/">Talk</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/TalkToCli/">TalkToCli</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/TalkToFloor/">TalkToFloor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/Talked/">Talked</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/UpChar/">UpChar</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/Update_Party/">Update Party</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/WalkMove/">WalkMove</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/Walkable/">Walkable</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/WatchBattle/">WatchBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/WindowTalked/">WindowTalked</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nlg/c/">C</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Char 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="char/AddGold/">AddGold</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/AddPet/">AddPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/AddSkill/">AddSkill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/CheckTitle/">CheckTitle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/ClrClrEvt/">ClrClrEvt</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/ClrEvtEnd/">ClrEvtEnd</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/ClrEvtNow/">ClrEvtNow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/DelItem/">DelItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/DelPet/">DelPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/DelSkill/">DelSkill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/DelSlotPet/">DelSlotPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/DischargeParty/">DischargeParty</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/DropPet/">DropPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/EndEvent/">EndEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/FeverStart/">FeverStart</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/FeverStop/">FeverStop</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/FindItemId/">FindItemId</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/FindTitleIndex/">FindTitleIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetBattleIndex/">GetBattleIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetCharPointer/">GetCharPointer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetCurrentBattleActionCount/">GetCurrentBattleActionCount</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetCurrentBattleTechActionCount/">GetCurrentBattleTechActionCount</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetData/">GetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetGuildID/">GetGuildID</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetGuildTitleID/">GetGuildTitleID</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetHouseItem/">GetHouseItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetHousePet/">GetHousePet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetItemIndex/">GetItemIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetPartyMember/">GetPartyMember</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetPartyMode/">GetPartyMode</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetPet/">GetPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetPoolItem/">GetPoolItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetPoolPet/">GetPoolPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetSkillExp/">GetSkillExp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetSkillID/">GetSkillID</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetSkillLevel/">GetSkillLevel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetSkillMaxLevel/">GetSkillMaxLevel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetTechId/">GetTechId</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GetTitle/">GetTitle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GiveItem/">GiveItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GiveItemWithPos/">GiveItemWithPos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GivePet/">GivePet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/GiveRecipe/">GiveRecipe</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/HasGuild/">HasGuild</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/HaveItem/">HaveItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/HavePet/">HavePet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/HaveSkill/">HaveSkill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/IsEventEnd/">IsEventEnd</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/IsEventNow/">IsEventNow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/IsFeverTime/">IsFeverTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/ItemNum/">ItemNum</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/ItemSlot/">ItemSlot</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/JoinParty/">JoinParty</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/LevelExp/">LevelExp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/NowEvent/">NowEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/PartyNum/">PartyNum</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/PetNum/">PetNum</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/SelectTitle/">SelectTitle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/SetBonusEncountRate/">SetBonusEncountRate</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/SetData/">SetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/SetEvtEnd/">SetEvtEnd</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/SetEvtNow/">SetEvtNow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/SetItemPutEvent/">SetItemPutEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/SetLoopEvent/">SetLoopEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/SetPartyNPC/">SetPartyNPC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/SetPostOverEvent/">SetPostOverEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/SetPreOverEvent/">SetPreOverEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/SetSkillExp/">SetSkillExp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/SetSkillLevel/">SetSkillLevel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/SetTalkedEvent/">SetTalkedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/SetWalkPostEvent/">SetWalkPostEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/SetWalkPreEvent/">SetWalkPreEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/SetWindowTalkedEvent/">SetWindowTalkedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="char/Warp/">Warp</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Battle 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/ActionSelect/">ActionSelect</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/DelDefaultWinEvent/">DelDefaultWinEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/Encount/">Encount</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/ExitBattle/">ExitBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/FinishPlayerBattle/">FinishPlayerBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/GetBattleCharacterStatus/">GetBattleCharacterStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/GetBattleFieldAttribute/">GetBattleFieldAttribute</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/GetBattleMode/">GetBattleMode</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/GetCurrentBattle/">GetCurrentBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/GetEntryPosition/">GetEntryPosition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/GetGainMode/">GetGainMode</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/GetMod/">GetMod</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/GetNextBattle/">GetNextBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/GetNoRisk/">GetNoRisk</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/GetPlayIndex/">GetPlayIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/GetTargetSelect/">GetTargetSelect</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/GetTurn/">GetTurn</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/GetType/">GetType</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/GetUseFpByTechId/">GetUseFpByTechId</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/GetWinSide/">GetWinSide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/IsBattleSurprise/">IsBattleSurprise</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/IsBossBattle/">IsBossBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/IsUsing/">IsUsing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/IsWaitingCommand/">IsWaitingCommand</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/JoinBattle/">JoinBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/PVE/">PVE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/PVP/">PVP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/PetActionSelect/">PetActionSelect</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/SetBattleCharacterStatus/">SetBattleCharacterStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/SetBattleFieldAttribute/">SetBattleFieldAttribute</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/SetGainMode/">SetGainMode</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/SetMod/">SetMod</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/SetNextBattle/">SetNextBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/SetNoRisk/">SetNoRisk</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/SetType/">SetType</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/SetWinEvent/">SetWinEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/UseTech/">UseTech</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="battle/UseTechById/">UseTechById</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Pet 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/AddSkill/">AddSkill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/ArtRank/">ArtRank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/DelSkill/">DelSkill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/FullArtRank/">FullArtRank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/GetGetableItemList/">GetGetableItemList</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/GetOwner/">GetOwner</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/GetRider/">GetRider</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/GetSkill/">GetSkill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/GetStatus/">GetStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/GetStealableItem/">GetStealableItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/GetUUID/">GetUUID</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/IsPet/">IsPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/Kill/">Kill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/LevelUp/">LevelUp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/ReBirth/">ReBirth</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/SetArtRank/">SetArtRank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/SetGetableItemList/">SetGetableItemList</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/SetStatus/">SetStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/SetStealableItem/">SetStealableItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/TradePet/">TradePet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="pet/UpPet/">UpPet</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Item 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="item/GetData/">GetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="item/Kill/">Kill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="item/KillByIndex/">KillByIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="item/MakeItemAndRegist/">MakeItemAndRegist</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="item/SetData/">SetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="item/SetTimeLimit/">SetTimeLimit</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="item/TradeItem/">TradeItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="item/UpItem/">UpItem</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Obj 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="obj/GetCharIndex/">GetCharIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="obj/GetDelTime/">GetDelTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="obj/GetFloor/">GetFloor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="obj/GetMap/">GetMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="obj/GetObject/">GetObject</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="obj/GetType/">GetType</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="obj/GetX/">GetX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="obj/GetY/">GetY</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="obj/SetDelTime/">SetDelTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="obj/SetFloor/">SetFloor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="obj/SetMap/">SetMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="obj/SetType/">SetType</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="obj/SetX/">SetX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="obj/SetY/">SetY</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Map 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="map/guide/">说明</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="map/demo/">演示</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="map/DelLuaMap/">DelLuaMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="map/DumpLuaMap/">DumpLuaMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="map/GetAvailablePos/">GetAvailablePos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="map/GetDungeonExpireTime/">GetDungeonExpireTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="map/GetImage/">GetImage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="map/GetMapSize/">GetMapSize</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="map/MakeCopyMap/">MakeCopyMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="map/MakeMazeMap/">MakeMazeMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="map/SetImage/">SetImage</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Field 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="field/guide/">说明</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="field/Get/">Get</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="field/Set/">Set</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Foreach 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="foreach/Enemy/">Enemy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="foreach/Item/">Item</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="foreach/Npc/">Npc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="foreach/Object/">Object</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="foreach/Pet/">Pet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="foreach/Player/">Player</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="foreach/Warp/">Warp</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Data 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="data/EnemyGetData/">EnemyGetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="data/EnemyGetIndex/">EnemyGetIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="data/EnemyTempGetData/">EnemyTempGetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="data/EnemyTempGetIndex/">EnemyTempGetIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="data/ItemsetGetData/">ItemsetGetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="data/ItemsetGetIndex/">ItemsetGetIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="data/ItemsetGetRandomIntData/">ItemsetGetRandomIntData</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Setup 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="setup/Get/">Get</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="setup/Set/">Set</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SQL 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="sql/Query/">Query</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Protocol 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="protocol/guide/">说明</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="protocol/AddPacket/">AddPacket</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="protocol/GetCharByFd/">GetCharByFd</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="protocol/OnRecv/">OnRecv</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="protocol/RawSend/">RawSend</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="protocol/Send/">Send</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="protocol/SendLuaCustomPacket/">SendLuaCustomPacket</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Offline 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="offline/GetOfflineEndTime/">GetOfflineEndTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="offline/GetOfflineStartTime/">GetOfflineStartTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="offline/GetOfflineStatus/">GetOfflineStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="offline/OfflineLogin/">OfflineLogin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="offline/OfflineLogout/">OfflineLogout</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="offline/SetOfflineEndTime/">SetOfflineEndTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="offline/SetOfflineLoopEvent/">SetOfflineLoopEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="offline/SetOfflinePlayer/">SetOfflinePlayer</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Debug 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="debug/OfflineLogin/">OfflineLogin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="debug/Snapshot/">Snapshot</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">附录</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="appendix/%E6%95%B0%E5%80%BC%E5%9E%8B/">数值型</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="appendix/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="appendix/%E5%B8%83%E5%B0%94%E5%9E%8B/">布尔型</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="appendix/%E5%87%BD%E6%95%B0%E5%9E%8B/">函数型</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="appendix/%E8%A1%A8/">表</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="appendix/%E5%AF%B9%E8%B1%A1index/">对象index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="appendix/%E9%81%93%E5%85%B7index/">道具index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="appendix/%E6%88%98%E6%96%97index/">战斗index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="appendix/%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97/">扩展模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="appendix/%E4%BA%8B%E4%BB%B6%E6%80%BB%E8%A1%A8/">事件总表</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="appendix/setup%E9%85%8D%E7%BD%AE%E9%94%AE/">Setup配置键</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="appendix/%E5%B8%B8%E9%87%8F/">常量</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="appendix/%E5%B8%B8%E9%87%8F-big5/">常量 big5</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">hourglass-gmsv Lua 脚本引擎</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">首页</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <!-- Generated. DO NOT EDIT. -->
+<h1 id="hourglass-gmsv-lua">hourglass-gmsv Lua 脚本引擎</h1>
+<p>本文档是 hourglass-gmsv 服务端内置 Lua 5.2.4 脚本引擎的 API 参考手册，面向编写 NPC/事件脚本的开发者。</p>
+<p>各库按主题分组：NL/NLG 提供事件注册与通用工具，Char/Battle/Pet/Item/Obj/Map 对应各类游戏对象的读写与操作，Field/Setup/SQL/Protocol/Offline/Debug 则是数据存储、配置、数据库与协议层面的辅助与集成能力。每个函数一页，包含签名、参数说明、返回值与示例；部分函数附带备注，说明需要特别留意的行为细节。完整目录见下方各节；跨函数的通用约定——数值/字符串/布尔/函数/表等参数类型、对象index/道具index/战斗index 等句柄概念、可用的扩展模块——见附录部分。</p>
+<h2 id="nl">NL 库</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能简述</th>
+<th>别名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="nl/Charset/">NL.Charset</a></td>
+<td>获取当前 gmsv 运行时使用的文本编码。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/CreateAccount/">NL.CreateAccount</a></td>
+<td>异步注册一个游戏帐号，结果通过固定名回调函数返回。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/CreateArgNpc/">NL.CreateArgNpc</a></td>
+<td>直接创建 data/npc.txt 支持的各种内建类型 NPC，并传入该类型对应的参数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/CreateCharacter/">NL.CreateCharacter</a></td>
+<td>异步在指定帐号的指定栏位创建一个游戏角色，结果通过固定名回调函数返回。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/CreateNpc/">NL.CreateNpc</a></td>
+<td>用 Lua 脚本创建一个 NPC，并执行指定的初始化函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/DelNpc/">NL.DelNpc</a></td>
+<td>删除一个 NPC。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/DeleteCharacter/">NL.DeleteCharacter</a></td>
+<td>异步删除指定帐号指定栏位的角色，结果通过固定名回调函数返回。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/GetErrorStr/">NL.GetErrorStr</a></td>
+<td>获取引擎最近一次记录的错误信息。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegAfterWarpEvent/">NL.RegAfterWarpEvent</a></td>
+<td>注册玩家使用传送点时触发的 Lua 函数，比 RegWarpEvent 多带传送前后的完整坐标。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegBattleActionEvent/">NL.RegBattleActionEvent</a></td>
+<td>注册玩家在战斗中发出指令时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegBattleExitEvent/">NL.RegBattleExitEvent</a></td>
+<td>注册玩家中途离开战斗时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegBattleGetProfitEvent/">NL.RegBattleGetProfitEvent</a></td>
+<td>注册战斗结算发放奖励时触发的 Lua 函数，可以改写掉落道具或决斗点。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegBattleNewTurnStartEvent/">NL.RegBattleNewTurnStartEvent</a></td>
+<td>注册战斗新回合开始时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegBattleNextEnemyEvent/">NL.RegBattleNextEnemyEvent</a></td>
+<td>注册通过 Battle.SetNextBattle 设定的连战触发的 Lua 函数，用来提供下一波敌人。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegBattleOverEvent/">NL.RegBattleOverEvent</a></td>
+<td>注册战斗结束时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegBattlePVPMaxHpEvent/">NL.RegBattlePVPMaxHpEvent</a></td>
+<td>注册 PK 战斗初始化角色最大生命值时触发的 Lua 函数，可以改写该上限。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegBattleSkillExpEvent/">NL.RegBattleSkillExpEvent</a></td>
+<td>注册对象获得战斗技能经验时触发的 Lua 函数，可以改写实际获得的技能经验。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegBattleStartEvent/">NL.RegBattleStartEvent</a></td>
+<td>注册战斗开始时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegBattleSurpriseEvent/">NL.RegBattleSurpriseEvent</a></td>
+<td>注册战斗偷袭判定时触发的 Lua 函数，可以改写偷袭结果。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegCharActionEvent/">NL.RegCharActionEvent</a></td>
+<td>注册玩家做出动作（晕倒、攻击、剪刀石头布等）时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegDamageCalculateEvent/">NL.RegDamageCalculateEvent</a></td>
+<td>注册战斗中计算伤害时触发的 Lua 函数，可以改写最终伤害值。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegDropEvent/">NL.RegDropEvent</a></td>
+<td>注册玩家掉线时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegEquipmentLevelEvent/">NL.RegEquipmentLevelEvent</a></td>
+<td>注册读取装备使用所需等级时触发的 Lua 函数，可以改写该等级要求。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegFpConsumeEvent/">NL.RegFpConsumeEvent</a></td>
+<td>注册消耗魔力值（FP）时触发的 Lua 函数，可以改写消耗量。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegGetExpEvent/">NL.RegGetExpEvent</a></td>
+<td>注册对象获得战斗经验时触发的 Lua 函数，可以改写实际获得的经验值。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegGetLoginPointEvent/">NL.RegGetLoginPointEvent</a></td>
+<td>注册玩家登入时读取登录点信息触发的 Lua 函数，可用来实现原地登录。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegGetNextLevelExpEvent/">NL.RegGetNextLevelExpEvent</a></td>
+<td>注册读取升到下一级所需经验时触发的 Lua 函数，可以改写经验曲线。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegHeadCoverEvent/">NL.RegHeadCoverEvent</a></td>
+<td>注册生成角色头饰效果时触发的 Lua 函数，可以在不装备头饰道具的前提下指定头饰图档。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegItemDurabilityChangedEvent/">NL.RegItemDurabilityChangedEvent</a></td>
+<td>注册道具耐久度变化时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegItemMaxDurabilityChangedEvent/">NL.RegItemMaxDurabilityChangedEvent</a></td>
+<td>注册道具最大耐久度变化时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegItemOverLapEvent/">NL.RegItemOverLapEvent</a></td>
+<td>注册道具栏内把一个道具拖到另一个道具上时触发的 Lua 函数，可以拦截这次移动。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegItemString/">NL.RegItemString</a></td>
+<td>注册一个可以在 itemset 中使用的道具效果字段，道具触发该字段时会调用指定的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegLevelUpEvent/">NL.RegLevelUpEvent</a></td>
+<td>注册玩家角色升级时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegLoginEvent/">NL.RegLoginEvent</a></td>
+<td>注册玩家登入游戏时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegLoginGateEvent/">NL.RegLoginGateEvent</a></td>
+<td>注册玩家点击客户端“登出回记录点”时触发的 Lua 函数，可以拦截该操作。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegLogoutEvent/">NL.RegLogoutEvent</a></td>
+<td>注册玩家主动登出游戏时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegMakeItemStringEvent/">NL.RegMakeItemStringEvent</a></td>
+<td>注册生成道具介绍文字时触发的 Lua 函数，可以改写道具说明文本。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegMergeItemEvent/">NL.RegMergeItemEvent</a></td>
+<td>注册玩家用生产技能制作道具时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegNpcCreatedEvent/">NL.RegNpcCreatedEvent</a></td>
+<td>注册 NPC 被创建时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegPartyEvent/">NL.RegPartyEvent</a></td>
+<td>注册玩家组队与离队时触发的 Lua 函数，可以拦截该操作。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegPetEquipCheckEvent/">NL.RegPetEquipCheckEvent</a></td>
+<td>注册宠物装备道具前触发的 Lua 函数，可以禁止本次装备。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegPetLevelUpEvent/">NL.RegPetLevelUpEvent</a></td>
+<td>注册宠物升级时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegPetRideImageEvent/">NL.RegPetRideImageEvent</a></td>
+<td>注册服务器处理骑宠图档时触发的 Lua 函数，可以改写显示的骑宠图档。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegProductSkillExpEvent/">NL.RegProductSkillExpEvent</a></td>
+<td>注册对象获得生产技能经验时触发的 Lua 函数，可以改写实际获得的技能经验。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegRightClickEvent/">NL.RegRightClickEvent</a></td>
+<td>注册玩家右键点击另一名玩家时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegSealEvent/">NL.RegSealEvent</a></td>
+<td>注册玩家封印宠物时触发的 Lua 函数，可以改写封印结果。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegShutDownEvent/">NL.RegShutDownEvent</a></td>
+<td>注册服务器关闭时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegStallTradeEvent/">NL.RegStallTradeEvent</a></td>
+<td>注册摆摊交易时触发的 Lua 函数，可以自行处理金钱结算或直接拒绝交易。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegTalkEvent/">NL.RegTalkEvent</a></td>
+<td>注册玩家说话时触发的 Lua 函数，可用来做自定义指令、GM 命令与聊天过滤。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegTechOptionEvent/">NL.RegTechOptionEvent</a></td>
+<td>注册读取技能附加参数（TECH_OPTION 字段）时触发的 Lua 函数，可以改写字段值。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegTitleChangedEvent/">NL.RegTitleChangedEvent</a></td>
+<td>注册玩家称号发生变更时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegVSEnemyCreateEvent/">NL.RegVSEnemyCreateEvent</a></td>
+<td>注册玩家遇敌生成敌人队列时触发的 Lua 函数，可以改写遇敌队列和数量。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/RegWarpEvent/">NL.RegWarpEvent</a></td>
+<td>注册玩家被传送到指定坐标时触发的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/SetArgNpc/">NL.SetArgNpc</a></td>
+<td>修改一个 Lua 创建的 NPC 的参数，并让它按新参数重新初始化。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/SetRemoteNpc/">NL.SetRemoteNpc</a></td>
+<td>设置 NPC 的远程模式，开启后该 NPC 可以不受距离限制被触发。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nl/Ver/">NL.Ver</a></td>
+<td>获取 Lua 引擎的版本标识。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="nlg">NLG 库</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能简述</th>
+<th>别名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="nlg/CanTalk/">NLG.CanTalk</a></td>
+<td>判断玩家当前是否可以与目标 NPC 交谈（在 CheckTalkRange 的几何判定基础上，额外拒绝不可见/停用的 NPC）。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/CharLook/">NLG.CharLook</a></td>
+<td>让对象转向指定方向（只转身，不移动），并触发朝向两格内的对话联动检查。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/CheckInFront/">NLG.CheckInFront</a></td>
+<td>判断目标对象是否位于自身朝向方向、指定距离以内的直线格子上。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/CheckTalkRange/">NLG.CheckTalkRange</a></td>
+<td>检查两个对象是否处于可对话的位置关系（大致等价于“面对面且相距不超过2格”）。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/DischargeParty/">NLG.DischargeParty</a></td>
+<td>解散指定对象所在的队伍。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/DropPlayer/">NLG.DropPlayer</a></td>
+<td>强制断开指定玩家的连接。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/FindNpcByName/">NLG.FindNpcByName</a></td>
+<td>按名字查找 NPC 类对象。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/FindNpcByPos/">NLG.FindNpcByPos</a></td>
+<td>按坐标查找该格子上的第一个 NPC 类对象。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/FindUser/">NLG.FindUser</a></td>
+<td>按帐号（CdKey）查找当前在线玩家的对象index。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/GetFloorPets/">NLG.GetFloorPets</a></td>
+<td>获取指定地图楼层上放置在地面的所有宠物对象。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/GetFrontChar/">NLG.GetFrontChar</a></td>
+<td>获取对象面前一格内、符合指定类型条件的所有对象数量和对象index列表。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/GetGameTime/">NLG.GetGameTime</a></td>
+<td>获取游戏内当前所处的时段。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/GetIp/">NLG.GetIp</a></td>
+<td>获取玩家当前连接的IP地址。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/GetMAC/">NLG.GetMAC</a></td>
+<td>获取玩家登录时上报的MAC地址（本版本已启用MAC地址限制功能）。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/GetMapName/">NLG.GetMapName</a></td>
+<td>获取指定地图楼层当前设置的显示名称。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/GetMapPlayer/">NLG.GetMapPlayer</a></td>
+<td>获取指定地图楼层上所有在线玩家的对象index。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/GetMapPlayerNum/">NLG.GetMapPlayerNum</a></td>
+<td>获取指定地图楼层上在线玩家的数量。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/GetMessage/">NLG.GetMessage</a></td>
+<td>按ID读取旧版 msg.txt 消息表里的一条文字（不是 langmsg 多语言目录）。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/GetOfflineEndTime/">NLG.GetOfflineEndTime</a></td>
+<td>同 Offline.GetOfflineEndTime</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/GetOfflineStartTime/">NLG.GetOfflineStartTime</a></td>
+<td>同 Offline.GetOfflineStartTime</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/GetOfflineStatus/">NLG.GetOfflineStatus</a></td>
+<td>同 Offline.GetOfflineStatus</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/GetOnLinePlayer/">NLG.GetOnLinePlayer</a></td>
+<td>获取当前全服在线玩家总数。</td>
+<td><a href="nlg/GetOnLinePlayer/">NLG.GetPlayerNum</a></td>
+</tr>
+<tr>
+<td><a href="nlg/GetStallItemPrice/">NLG.GetStallItemPrice</a></td>
+<td>获取玩家摆摊道具的定价表。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/GetStallPetPrice/">NLG.GetStallPetPrice</a></td>
+<td>获取玩家摆摊宠物的定价表。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/GetStallStatus/">NLG.GetStallStatus</a></td>
+<td>获取玩家的摆摊状态。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/GetString/">NLG.GetString</a></td>
+<td>以给定分隔符集合切分字符串，取切分结果里第Pos个（从0开始）token。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/MapEffect/">NLG.MapEffect</a></td>
+<td>清除全服玩家的地图特效，或对指定地图楼层设置地图特效；两种调用方式共用同一个函数名。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/MoveItem/">NLG.MoveItem</a></td>
+<td>在玩家的物品栏位之间移动/合并道具。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/Rand/">NLG.Rand</a></td>
+<td>生成一个指定范围内（含两端）的随机整数，使用服务器自身的随机数源。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/SendGraphEvent/">NLG.SendGraphEvent</a></td>
+<td>给对象发送一个白名单内的图形观察事件（如战斗、升级、摆摊等状态图标的显示/隐藏），非玩家对象还会连带更新其内部技能状态。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/SetAction/">NLG.SetAction</a></td>
+<td>设置对象当前的动作状态并向周围广播。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/SetHeadIcon/">NLG.SetHeadIcon</a></td>
+<td>设置对象头顶显示的状态图标（如采集、生产等技能进行中的提示）。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/SetMapName/">NLG.SetMapName</a></td>
+<td>设置指定地图楼层的显示名称，并向当前在该楼层的所有玩家实时广播。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/SetObj/">NLG.SetObj</a></td>
+<td>在指定地图坐标写入一个物件（贴图对象），不改变该坐标的地砖。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/SetOfflinePlayer/">NLG.SetOfflinePlayer</a></td>
+<td>同 Offline.SetOfflinePlayer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/SetPal/">NLG.SetPal</a></td>
+<td>改变玩家客户端当前显示的地图调色板。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/SetShowName/">NLG.SetShowName</a></td>
+<td>设置 NPC/宠物/敌人对象是否像玩家一样在头顶显示名字。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/ShowTalked/">NLG.ShowTalked</a></td>
+<td>触发一个对象自身注册的对话模板函数，并把另一个对象当作发起对话的一方传入。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/ShowWindowTalked/">NLG.ShowWindowTalked</a></td>
+<td>生成并向目标对象发送一个对话框封包。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/SortItem/">NLG.SortItem</a></td>
+<td>整理玩家的背包物品。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/SystemMessage/">NLG.SystemMessage</a></td>
+<td>给指定对象发送一条黄色加粗的系统公告消息。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/SystemMessageToMap/">NLG.SystemMessageToMap</a></td>
+<td>给指定地图上的所有在线玩家发送一条黄色加粗的系统公告消息。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/Talk/">NLG.Talk</a></td>
+<td>让指定角色通过完整对话管线说一句话——与玩家客户端发出的对话封包走同一入口，会经过对话事件、连坐指令（聊天魔法）等处理，而不是像 TalkToCli 那样直接下发 TK 封包。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/TalkToCli/">NLG.TalkToCli</a></td>
+<td>让一名角色对指定对象（或全服）说话，走直接 TK 封包通道，不经过对话事件/连坐指令解析。</td>
+<td><a href="nlg/TalkToCli/">NLG.Say</a></td>
+</tr>
+<tr>
+<td><a href="nlg/TalkToFloor/">NLG.TalkToFloor</a></td>
+<td>让一名角色对指定地图+楼层上的所有在线玩家说话，走直接 TK 封包通道。</td>
+<td><a href="nlg/TalkToFloor/">NLG.TalkToMap</a>、<a href="nlg/TalkToFloor/">NLG.Say2Map</a></td>
+</tr>
+<tr>
+<td><a href="nlg/Talked/">NLG.Talked</a></td>
+<td>调用引擎内置的银行/窗口治疗师/伤病医生三种 NPC 对话模板之一，是通往这几个legacy系统的桥接函数，不是通用的对话钩子。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/UpChar/">NLG.UpChar</a></td>
+<td>强制刷新一个对象的客户端显示状态，视对象类型触发不同的重发流程。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/Update_Party/">NLG.Update_Party</a></td>
+<td>让指定对象重新向队伍全体成员广播一次队伍参数。</td>
+<td><a href="nlg/Update_Party/">NLG.UpdateParty</a></td>
+</tr>
+<tr>
+<td><a href="nlg/WalkMove/">NLG.WalkMove</a></td>
+<td>让对象朝指定方向走一格（真实位移，不只是转身）。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/Walkable/">NLG.Walkable</a></td>
+<td>检测地图上指定坐标是否可通行。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/WatchBattle/">NLG.WatchBattle</a></td>
+<td>让一名对象进入观战状态，观看另一名对象当前所在的战斗。</td>
+<td><a href="nlg/WatchBattle/">NLG.WatchEntry</a></td>
+</tr>
+<tr>
+<td><a href="nlg/WindowTalked/">NLG.WindowTalked</a></td>
+<td>Talked 的窗口交互半区，配合内置银行/窗口治疗师/伤病医生对话框的按钮响应使用。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nlg/c/">NLG.c</a></td>
+<td>将文本按 46 个半角字符宽度居中补空格，常用于 NPC 对话框标题的居中显示。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="char">Char 库</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能简述</th>
+<th>别名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="char/AddGold/">Char.AddGold</a></td>
+<td>为目标对象增减金钱。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/AddPet/">Char.AddPet</a></td>
+<td>按敌人模板 ID 为对象制作一只 1 级宠物并加入宠物栏，成长档随机。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/AddSkill/">Char.AddSkill</a></td>
+<td>为玩家增加指定技能，可同时播种初始经验。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/CheckTitle/">Char.CheckTitle</a></td>
+<td>重新检定玩家的全部称号解锁条件。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/ClrClrEvt/">Char.ClrClrEvt</a></td>
+<td>批量同时清除对象的 NowEvent 与 EndEvent 任务旗标。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/ClrEvtEnd/">Char.ClrEvtEnd</a></td>
+<td>批量清除对象的 EndEvent 任务旗标。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/ClrEvtNow/">Char.ClrEvtNow</a></td>
+<td>批量清除对象的 NowEvent 任务旗标。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/DelItem/">Char.DelItem</a></td>
+<td>删除目标对象身上指定 ID 的道具。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/DelPet/">Char.DelPet</a></td>
+<td>删除对象身上第一只满足条件的宠物。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/DelSkill/">Char.DelSkill</a></td>
+<td>删除玩家的指定技能。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/DelSlotPet/">Char.DelSlotPet</a></td>
+<td>删除对象指定宠物栏位上的宠物。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/DischargeParty/">Char.DischargeParty</a></td>
+<td>解散对象所在的队伍。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/DropPet/">Char.DropPet</a></td>
+<td>把对象指定宠物栏位上的宠物丢到地面上。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/EndEvent/">Char.EndEvent</a></td>
+<td>读取或设置对象的 EndEvent 任务旗标。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/FeverStart/">Char.FeverStart</a></td>
+<td>让玩家进入打卡（Fever）状态。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/FeverStop/">Char.FeverStop</a></td>
+<td>结束玩家的打卡（Fever）状态。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/FindItemId/">Char.FindItemId</a></td>
+<td>查找对象身上第一个指定 ID 道具所在的道具栏位置。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/FindTitleIndex/">Char.FindTitleIndex</a></td>
+<td>查找玩家是否拥有指定 ID 的称号，并返回其称号栏位置。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetBattleIndex/">Char.GetBattleIndex</a></td>
+<td>获取玩家当前所在战斗的战斗index。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetCharPointer/">Char.GetCharPointer</a></td>
+<td>获取对象的稳定标识。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetCurrentBattleActionCount/">Char.GetCurrentBattleActionCount</a></td>
+<td>获取玩家在当前战斗回合内已提交的战斗指令数量。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetCurrentBattleTechActionCount/">Char.GetCurrentBattleTechActionCount</a></td>
+<td>获取玩家在当前战斗回合内已提交的技能指令数量。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetData/">Char.GetData</a></td>
+<td>读取对象index的指定信息栏位。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetGuildID/">Char.GetGuildID</a></td>
+<td>获取玩家所属家族的 ID。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetGuildTitleID/">Char.GetGuildTitleID</a></td>
+<td>获取玩家在家族中的称号 ID。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetHouseItem/">Char.GetHouseItem</a></td>
+<td>获取玩家出租屋中指定位置的道具index。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetHousePet/">Char.GetHousePet</a></td>
+<td>获取玩家出租屋中指定位置的宠物对象index。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetItemIndex/">Char.GetItemIndex</a></td>
+<td>读取对象指定道具栏位上的道具index。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetPartyMember/">Char.GetPartyMember</a></td>
+<td>获取对象所在队伍中指定位置的成员。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetPartyMode/">Char.GetPartyMode</a></td>
+<td>获取对象当前的组队状态。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetPet/">Char.GetPet</a></td>
+<td>获取对象指定宠物栏位上的宠物对象index。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetPoolItem/">Char.GetPoolItem</a></td>
+<td>获取玩家银行中指定位置的道具index。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetPoolPet/">Char.GetPoolPet</a></td>
+<td>获取玩家银行中指定位置的宠物对象index。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetSkillExp/">Char.GetSkillExp</a></td>
+<td>获取玩家指定技能栏位置上的技能经验。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetSkillID/">Char.GetSkillID</a></td>
+<td>获取玩家指定技能栏位置上的技能 ID。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetSkillLevel/">Char.GetSkillLevel</a></td>
+<td>获取玩家指定技能栏位置上的技能等级。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetSkillMaxLevel/">Char.GetSkillMaxLevel</a></td>
+<td>获取玩家指定技能栏位置上的技能在当前职业下的等级上限。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetTechId/">Char.GetTechId</a></td>
+<td>获取对象某个技能栏位置下指定招式位置的招式 ID。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GetTitle/">Char.GetTitle</a></td>
+<td>获取玩家当前装备的称号 ID。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GiveItem/">Char.GiveItem</a></td>
+<td>给予目标对象指定 ID 的道具。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GiveItemWithPos/">Char.GiveItemWithPos</a></td>
+<td>在指定道具栏位上给予目标对象道具。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GivePet/">Char.GivePet</a></td>
+<td>按敌人模板 ID 为对象制作一只 1 级宠物，可指定是否满档。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/GiveRecipe/">Char.GiveRecipe</a></td>
+<td>为玩家增加指定 ID 的配方。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/HasGuild/">Char.HasGuild</a></td>
+<td>检测对象是否已经加入家族。</td>
+<td><a href="char/HasGuild/">Char.HaveGuild</a></td>
+</tr>
+<tr>
+<td><a href="char/HaveItem/">Char.HaveItem</a></td>
+<td>检测对象身上是否有指定 ID 的道具，并返回该道具index。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/HavePet/">Char.HavePet</a></td>
+<td>检测对象身上是否有指定 ID 的宠物，并返回其宠物栏位置。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/HaveSkill/">Char.HaveSkill</a></td>
+<td>获取玩家指定技能所在的技能栏位置。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/IsEventEnd/">Char.IsEventEnd</a></td>
+<td>检测对象的指定 EndEvent 任务旗标是否已经置位。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/IsEventNow/">Char.IsEventNow</a></td>
+<td>检测对象的指定 NowEvent 任务旗标是否已经置位。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/IsFeverTime/">Char.IsFeverTime</a></td>
+<td>检测玩家是否处于打卡（Fever）状态。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/ItemNum/">Char.ItemNum</a></td>
+<td>统计对象身上指定 ID 道具的总数量。</td>
+<td><a href="char/ItemNum/">Char.HaveItemNum</a></td>
+</tr>
+<tr>
+<td><a href="char/ItemSlot/">Char.ItemSlot</a></td>
+<td>统计对象道具栏中已被占用的栏位数量。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/JoinParty/">Char.JoinParty</a></td>
+<td>让对象加入指定目标所在的队伍。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/LevelExp/">Char.LevelExp</a></td>
+<td>获取对象当前等级对应的升级经验门槛。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/NowEvent/">Char.NowEvent</a></td>
+<td>读取或设置对象的 NowEvent 任务旗标。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/PartyNum/">Char.PartyNum</a></td>
+<td>获取对象所在队伍的成员人数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/PetNum/">Char.PetNum</a></td>
+<td>统计对象携带的宠物数量。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/SelectTitle/">Char.SelectTitle</a></td>
+<td>为玩家装备指定栏位上的称号。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/SetBonusEncountRate/">Char.SetBonusEncountRate</a></td>
+<td>设置玩家的遇敌率修正值。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/SetData/">Char.SetData</a></td>
+<td>写入对象index的指定信息栏位。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/SetEvtEnd/">Char.SetEvtEnd</a></td>
+<td>批量置位对象的 EndEvent 任务旗标。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/SetEvtNow/">Char.SetEvtNow</a></td>
+<td>批量置位对象的 NowEvent 任务旗标。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/SetItemPutEvent/">Char.SetItemPutEvent</a></td>
+<td>为对象index登记“有道具被丢在附近”事件的 Lua 回调函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/SetLoopEvent/">Char.SetLoopEvent</a></td>
+<td>为对象index登记循环事件的 Lua 回调函数，每隔指定间隔触发一次。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/SetPartyNPC/">Char.SetPartyNPC</a></td>
+<td>把 NPC 设为可组队的随行 NPC。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/SetPostOverEvent/">Char.SetPostOverEvent</a></td>
+<td>为对象index登记“覆盖其他对象后”事件的 Lua 回调函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/SetPreOverEvent/">Char.SetPreOverEvent</a></td>
+<td>为对象index登记“覆盖其他对象前”事件的 Lua 回调函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/SetSkillExp/">Char.SetSkillExp</a></td>
+<td>设置玩家指定技能栏位置上的技能经验。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/SetSkillLevel/">Char.SetSkillLevel</a></td>
+<td>设置玩家指定技能栏位置上的技能等级。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/SetTalkedEvent/">Char.SetTalkedEvent</a></td>
+<td>为对象index登记“被搭话”事件的 Lua 回调函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/SetWalkPostEvent/">Char.SetWalkPostEvent</a></td>
+<td>为对象index登记“行走后”事件的 Lua 回调函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/SetWalkPreEvent/">Char.SetWalkPreEvent</a></td>
+<td>为对象index登记“行走前”事件的 Lua 回调函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/SetWindowTalkedEvent/">Char.SetWindowTalkedEvent</a></td>
+<td>为对象index登记“对话框交互”事件的 Lua 回调函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="char/Warp/">Char.Warp</a></td>
+<td>将对象连同其队伍传送到指定地图坐标。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="battle">Battle 库</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能简述</th>
+<th>别名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="battle/ActionSelect/">Battle.ActionSelect</a></td>
+<td>让对象执行一次指定的战斗指令，必须在 Battle.IsWaitingCommand 返回 1 时调用才有效。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/DelDefaultWinEvent/">Battle.DelDefaultWinEvent</a></td>
+<td>删除指定战斗的引擎内建胜利事件。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/Encount/">Battle.Encount</a></td>
+<td>触发一场遇敌战斗；两参数形式为原地遇敌，三参数形式把 NPC 重新初始化为立敌（stand enemy）后发起战斗。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/ExitBattle/">Battle.ExitBattle</a></td>
+<td>强制让指定对象退出当前所在的战斗。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/FinishPlayerBattle/">Battle.FinishPlayerBattle</a></td>
+<td>让角色直接脱离当前战斗并结束战斗流程。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/GetBattleCharacterStatus/">Battle.GetBattleCharacterStatus</a></td>
+<td>获取对象当前的某一项战斗状态（战斗中的临时增益、异常状态与回合计数）。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/GetBattleFieldAttribute/">Battle.GetBattleFieldAttribute</a></td>
+<td>获取当前战斗的战场魔法效果，如属性翻转、魔法封印。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/GetBattleMode/">Battle.GetBattleMode</a></td>
+<td>获取对象当前的战斗状态。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/GetCurrentBattle/">Battle.GetCurrentBattle</a></td>
+<td>获取指定对象当前所处战斗的战斗index。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/GetEntryPosition/">Battle.GetEntryPosition</a></td>
+<td>获取对象在战场中的位置编号。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/GetGainMode/">Battle.GetGainMode</a></td>
+<td>获取战斗奖励模式，如奖励经验、奖励 DP。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/GetMod/">Battle.GetMod</a></td>
+<td>获取战斗的运行模式（战斗流程状态机所处的阶段）。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/GetNextBattle/">Battle.GetNextBattle</a></td>
+<td>获取连战设置。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/GetNoRisk/">Battle.GetNoRisk</a></td>
+<td>获取战斗的 NoRisk（无风险）标志。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/GetPlayIndex/">Battle.GetPlayIndex</a></td>
+<td>获取战斗队列中指定位置上对象实例的对象index。</td>
+<td><a href="battle/GetPlayIndex/">Battle.GetPlayer</a></td>
+</tr>
+<tr>
+<td><a href="battle/GetTargetSelect/">Battle.GetTargetSelect</a></td>
+<td>根据进攻者与目标在战场中的位置，换算出可直接用于战斗指令的目标参数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/GetTurn/">Battle.GetTurn</a></td>
+<td>获取战斗当前的回合数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/GetType/">Battle.GetType</a></td>
+<td>获取战斗类型，如普通战、PVP 战等。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/GetUseFpByTechId/">Battle.GetUseFpByTechId</a></td>
+<td>查询指定对象施放某个战斗技能所需的 FP 消耗。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/GetWinSide/">Battle.GetWinSide</a></td>
+<td>获取战斗胜利方所在的队列。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/IsBattleSurprise/">Battle.IsBattleSurprise</a></td>
+<td>判断战斗是否存在先制（偷袭）方。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/IsBossBattle/">Battle.IsBossBattle</a></td>
+<td>判断战斗是否是 BOSS 战。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/IsUsing/">Battle.IsUsing</a></td>
+<td>判断指定战斗槽是否正在使用中。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/IsWaitingCommand/">Battle.IsWaitingCommand</a></td>
+<td>判断对象是否正处于战斗中的等待输入指令状态。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/JoinBattle/">Battle.JoinBattle</a></td>
+<td>让一个不在战斗中的玩家加入另一个玩家的战斗（战斗中途救援参战）。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/PVE/">Battle.PVE</a></td>
+<td>用 Lua 脚本直接创建一场对怪物的战斗，战斗初始化完成后可回调指定的 Lua 函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/PVP/">Battle.PVP</a></td>
+<td>在两个玩家之间创建一场 PK 战斗。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/PetActionSelect/">Battle.PetActionSelect</a></td>
+<td>让玩家的出战宠物执行一次战斗指令，必须在 Battle.IsWaitingCommand 返回 1 时调用才有效。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/SetBattleCharacterStatus/">Battle.SetBattleCharacterStatus</a></td>
+<td>设置对象当前的某一项战斗状态。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/SetBattleFieldAttribute/">Battle.SetBattleFieldAttribute</a></td>
+<td>设置当前战斗的战场魔法效果，如属性翻转、魔法封印。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/SetGainMode/">Battle.SetGainMode</a></td>
+<td>设置战斗奖励模式，如奖励经验、奖励 DP。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/SetMod/">Battle.SetMod</a></td>
+<td>设置战斗的运行模式（战斗流程状态机所处的阶段）。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/SetNextBattle/">Battle.SetNextBattle</a></td>
+<td>设置连战（本场战斗结束后接续下一场）。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/SetNoRisk/">Battle.SetNoRisk</a></td>
+<td>设置战斗的 NoRisk（无风险）标志。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/SetType/">Battle.SetType</a></td>
+<td>设置战斗类型，如普通战、PVP 战等。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/SetWinEvent/">Battle.SetWinEvent</a></td>
+<td>为战斗设置胜利事件的 Lua 回调函数，战斗结束时由引擎回调。</td>
+<td><a href="battle/SetWinEvent/">Battle.SetPVPWinEvent</a></td>
+</tr>
+<tr>
+<td><a href="battle/UseTech/">Battle.UseTech</a></td>
+<td>让对象按技能栏位置施放战斗技能，必须在 Battle.IsWaitingCommand 返回 1 时调用才有效。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="battle/UseTechById/">Battle.UseTechById</a></td>
+<td>让对象直接按 tech id 施放战斗技能，必须在 Battle.IsWaitingCommand 返回 1 时调用才有效。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="pet">Pet 库</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能简述</th>
+<th>别名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="pet/AddSkill/">Pet.AddSkill</a></td>
+<td>给宠物增加一个新技能，宠物技能栏未满时生效。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/ArtRank/">Pet.ArtRank</a></td>
+<td>获取指定宠物某项属性的当前成长值（档数）。</td>
+<td><a href="pet/ArtRank/">Pet.GetArtRank</a></td>
+</tr>
+<tr>
+<td><a href="pet/DelSkill/">Pet.DelSkill</a></td>
+<td>删除宠物指定位置上的技能。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/FullArtRank/">Pet.FullArtRank</a></td>
+<td>获取指定宠物某项属性的满档成长值。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/GetGetableItemList/">Pet.GetGetableItemList</a></td>
+<td>获取战斗中敌方怪物身上的可掉落道具对象列表。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/GetOwner/">Pet.GetOwner</a></td>
+<td>获取宠物的拥有者对象index。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/GetRider/">Pet.GetRider</a></td>
+<td>获取骑乘该宠物的玩家对象index。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/GetSkill/">Pet.GetSkill</a></td>
+<td>获取宠物指定位置上的技能 ID。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/GetStatus/">Pet.GetStatus</a></td>
+<td>获取玩家指定宠物栏位上宠物的出战状态。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/GetStealableItem/">Pet.GetStealableItem</a></td>
+<td>获取战斗中敌方怪物身上的可偷窃道具对象。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/GetUUID/">Pet.GetUUID</a></td>
+<td>获取宠物对象的全局唯一标识。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/IsPet/">Pet.IsPet</a></td>
+<td>判断对象是否为宠物。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/Kill/">Pet.Kill</a></td>
+<td>从指定玩家身上删除指定宠物，宠物对象随之销毁。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/LevelUp/">Pet.LevelUp</a></td>
+<td>让玩家指定宠物栏位上的宠物提升 1 级。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/ReBirth/">Pet.ReBirth</a></td>
+<td>回炉指定宠物，让宠物回到 1 级并按当前档数重新分配基础属性。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/SetArtRank/">Pet.SetArtRank</a></td>
+<td>设置指定宠物某项属性的成长值（档数）。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/SetGetableItemList/">Pet.SetGetableItemList</a></td>
+<td>设置战斗中敌方怪物身上的可掉落道具对象。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/SetStatus/">Pet.SetStatus</a></td>
+<td>设置玩家指定宠物栏位上宠物的出战状态。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/SetStealableItem/">Pet.SetStealableItem</a></td>
+<td>设置战斗中敌方怪物身上的可偷窃道具对象。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/TradePet/">Pet.TradePet</a></td>
+<td>把玩家指定宠物栏位上的宠物转移给另一个玩家。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pet/UpPet/">Pet.UpPet</a></td>
+<td>结算宠物所有待处理的升级，并把宠物的最新状态封包发给客户端。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="item">Item 库</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能简述</th>
+<th>别名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="item/GetData/">Item.GetData</a></td>
+<td>获取道具实例的指定信息栏位。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="item/Kill/">Item.Kill</a></td>
+<td>删除玩家指定槽位上的道具实例，并向该玩家发送系统提示与客户端刷新。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="item/KillByIndex/">Item.KillByIndex</a></td>
+<td>仅凭道具 index 销毁一个道具实例（自动在持有者的 28 个背包槽位中定位）。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="item/MakeItemAndRegist/">Item.MakeItemAndRegist</a></td>
+<td>创建一个未挂靠任何角色的游离道具实例，并返回其 ItemIndex。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="item/SetData/">Item.SetData</a></td>
+<td>设置道具实例的指定信息栏位。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="item/SetTimeLimit/">Item.SetTimeLimit</a></td>
+<td>设置或清除道具实例的时限属性。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="item/TradeItem/">Item.TradeItem</a></td>
+<td>将一个玩家的道具实例转移给另一个玩家的背包（不弹交易窗口，直接转移）。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="item/UpItem/">Item.UpItem</a></td>
+<td>向该角色关联的客户端发送指定道具槽位的数据封包，强制刷新道具栏显示。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="obj">Obj 库</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能简述</th>
+<th>别名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="obj/GetCharIndex/">Obj.GetCharIndex</a></td>
+<td>获取指定 Object Index 关联的 Index 栏位。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="obj/GetDelTime/">Obj.GetDelTime</a></td>
+<td>获取指定 Object 的删除时间。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="obj/GetFloor/">Obj.GetFloor</a></td>
+<td>获取指定 Object Index 的 Floor ID。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="obj/GetMap/">Obj.GetMap</a></td>
+<td>获取指定 Object Index 的 Map ID。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="obj/GetObject/">Obj.GetObject</a></td>
+<td>获取指定地图坐标上的 Object Index 列表。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="obj/GetType/">Obj.GetType</a></td>
+<td>获取指定 Object Index 的 Object 类型。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="obj/GetX/">Obj.GetX</a></td>
+<td>获取指定 Object Index 的 X 坐标。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="obj/GetY/">Obj.GetY</a></td>
+<td>获取指定 Object Index 的 Y 坐标。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="obj/SetDelTime/">Obj.SetDelTime</a></td>
+<td>设置指定 Object 的删除时间。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="obj/SetFloor/">Obj.SetFloor</a></td>
+<td>设置指定 Object Index 的 Floor ID。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="obj/SetMap/">Obj.SetMap</a></td>
+<td>设置指定 Object Index 的 Map ID。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="obj/SetType/">Obj.SetType</a></td>
+<td>设置指定 Object Index 的 Object 类型。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="obj/SetX/">Obj.SetX</a></td>
+<td>设置指定 Object Index 的 X 坐标。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="obj/SetY/">Obj.SetY</a></td>
+<td>设置指定 Object Index 的 Y 坐标。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="map">Map 库</h2>
+<ul>
+<li><a href="map/guide/">库说明</a></li>
+<li><a href="map/demo/">demo</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能简述</th>
+<th>别名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="map/DelLuaMap/">Map.DelLuaMap</a></td>
+<td>删除一张 Lua 生成的地图，释放其 Floor 编号，并将该地图上的所有实体清场。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="map/DumpLuaMap/">Map.DumpLuaMap</a></td>
+<td>把一张 Lua 地图导出为本地地图文件（可当作简易地图编辑器使用）。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="map/GetAvailablePos/">Map.GetAvailablePos</a></td>
+<td>在一张随机（迷宫）地图上获取一个可通行的空地坐标。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="map/GetDungeonExpireTime/">Map.GetDungeonExpireTime</a></td>
+<td>获取一张（经典随机地城系统的）地图距离重置还剩的秒数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="map/GetImage/">Map.GetImage</a></td>
+<td>获取地图指定坐标的地板（底层）图档编号与物件（顶层）图档编号。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="map/GetMapSize/">Map.GetMapSize</a></td>
+<td>获取地图的尺寸。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="map/MakeCopyMap/">Map.MakeCopyMap</a></td>
+<td>复制一张已存在的地图（原样拷贝地板/物件/遭遇等信息）到 Lua 地图区块中的一个新 Floor。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="map/MakeMazeMap/">Map.MakeMazeMap</a></td>
+<td>异步生成一张随机（迷宫）地图；调用立即返回预留的 FloorId，实际生成在后台完成后通过回调函数通知结果。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="map/SetImage/">Map.SetImage</a></td>
+<td>设置地图指定坐标的地板或物件图档编号（系统自动判定该图档属于地板层还是物件层）。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="field">Field 库</h2>
+<ul>
+<li><a href="field/guide/">库说明</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能简述</th>
+<th>别名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="field/Get/">Field.Get</a></td>
+<td>读取指定 Field 的值。Field 名称首字符决定归属层级：不带前缀绑定当前角色，"#"前缀绑定所在账号，"@"前缀绑定整个服务器。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="field/Set/">Field.Set</a></td>
+<td>设置指定 Field 的值；名称首字符前缀规则与 Field.Get 相同。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="foreach">Foreach 库</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能简述</th>
+<th>别名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="foreach/Enemy/">Foreach.Enemy</a></td>
+<td>对当前地图上所有敌人（战斗单位）角色依次执行指定的回调函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="foreach/Item/">Foreach.Item</a></td>
+<td>对所有已使用且状态可用的道具实例依次执行指定的回调函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="foreach/Npc/">Foreach.Npc</a></td>
+<td>对当前地图上所有 NPC 类角色依次执行指定的回调函数（不含玩家/宠物/敌人/传送点）。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="foreach/Object/">Foreach.Object</a></td>
+<td>对世界对象表中所有已使用（非 NOUSE）的 Object 依次执行指定的回调函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="foreach/Pet/">Foreach.Pet</a></td>
+<td>对当前所有在线宠物依次执行指定的回调函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="foreach/Player/">Foreach.Player</a></td>
+<td>对当前所有在线玩家依次执行指定的回调函数。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="foreach/Warp/">Foreach.Warp</a></td>
+<td>对当前所有可用的 Warp 传送点角色依次执行指定的回调函数。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="data">Data 库</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能简述</th>
+<th>别名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="data/EnemyGetData/">Data.EnemyGetData</a></td>
+<td>获取指定索引的怪物出场表条目（enemy.txt）在某个信息栏位上的值。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="data/EnemyGetIndex/">Data.EnemyGetIndex</a></td>
+<td>通过 Enemy ID 获取该 Enemy 在 enemy.txt（怪物出场表）中的索引。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="data/EnemyTempGetData/">Data.EnemyTempGetData</a></td>
+<td>获取指定索引的怪物基础模板（enemybase.txt）在某个信息栏位上的值。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="data/EnemyTempGetIndex/">Data.EnemyTempGetIndex</a></td>
+<td>通过 Enemy ID 获取该 Enemy 在 enemybase.txt（怪物基础模板表）中的索引。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="data/ItemsetGetData/">Data.ItemsetGetData</a></td>
+<td>获取指定索引的道具模板在某个信息栏位上的值。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="data/ItemsetGetIndex/">Data.ItemsetGetIndex</a></td>
+<td>通过道具 ID 获取该道具在 ITEMSET.txt（道具模板表）中的索引。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="data/ItemsetGetRandomIntData/">Data.ItemsetGetRandomIntData</a></td>
+<td>获取指定索引的道具模板在某个整数栏位上的随机浮动区间宽度。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="setup">Setup 库</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能简述</th>
+<th>别名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="setup/Get/">Setup.Get</a></td>
+<td>按配置项名称读取服务端当前生效的设置值。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="setup/Set/">Setup.Set</a></td>
+<td>修改服务端当前进程内某配置项在内存中的数值；不改写配置文件本身，重启后修改效果消失。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="sql">SQL 库</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能简述</th>
+<th>别名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="sql/Query/">SQL.Query</a></td>
+<td>执行一条SQL语句（同步阻塞，直到拿到结果或超时）；SQL.Run是同一实现的别名。</td>
+<td><a href="sql/Query/">SQL.Run</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="protocol">Protocol 库</h2>
+<ul>
+<li><a href="protocol/guide/">库说明</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能简述</th>
+<th>别名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="protocol/AddPacket/">Protocol.AddPacket</a></td>
+<td>注册一对脚本自定义的封包头（接收/发送标识），用于承载脚本自己扩展的协议。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="protocol/GetCharByFd/">Protocol.GetCharByFd</a></td>
+<td>根据网络连接套接字ID获取对应的玩家对象index。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="protocol/OnRecv/">Protocol.OnRecv</a></td>
+<td>为指定封包ID注册一个接收回调，可以过滤/拦截该封包在服务端的后续派发。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="protocol/RawSend/">Protocol.RawSend</a></td>
+<td>向指定对象发送一段未经封包头封装的原始数据。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="protocol/Send/">Protocol.Send</a></td>
+<td>向指定对象发送一个自定义内容的封包。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="protocol/SendLuaCustomPacket/">Protocol.SendLuaCustomPacket</a></td>
+<td>发送Lua自定义封包，固定走服务端的自定义封包通道。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="offline">Offline 库</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能简述</th>
+<th>别名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="offline/GetOfflineEndTime/">Offline.GetOfflineEndTime</a></td>
+<td>获取指定玩家离线挂机的结束时间。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="offline/GetOfflineStartTime/">Offline.GetOfflineStartTime</a></td>
+<td>获取指定玩家离线挂机的开始时间。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="offline/GetOfflineStatus/">Offline.GetOfflineStatus</a></td>
+<td>获取指定玩家当前是否处于离线挂机状态。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="offline/OfflineLogin/">Offline.OfflineLogin</a></td>
+<td>以离线模式登录指定帐号的角色（不建立客户端连线），默认离线挂机时长按登录流程另行设定。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="offline/OfflineLogout/">Offline.OfflineLogout</a></td>
+<td>强制结束当前离线挂机角色的登录状态（立即登出）。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="offline/SetOfflineEndTime/">Offline.SetOfflineEndTime</a></td>
+<td>重新设置离线挂机角色的结束时间（从当前时间起续期）。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="offline/SetOfflineLoopEvent/">Offline.SetOfflineLoopEvent</a></td>
+<td>为指定对象设置离线循环事件回调，每隔 Interval 毫秒触发一次，直到被清除或对象登出。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="offline/SetOfflinePlayer/">Offline.SetOfflinePlayer</a></td>
+<td>设置指定玩家进入离线挂机状态，并保持指定时长。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="debug">Debug 库</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能简述</th>
+<th>别名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="debug/OfflineLogin/">Debug.OfflineLogin</a></td>
+<td>同 Offline.OfflineLogin</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="debug/Snapshot/">Debug.Snapshot</a></td>
+<td>生成当前 Lua 状态的内存快照（本版本为占位实现），供内存诊断参考。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_1">附录</h2>
+<ul>
+<li><a href="appendix/%E6%95%B0%E5%80%BC%E5%9E%8B/">数值型</a></li>
+<li><a href="appendix/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a></li>
+<li><a href="appendix/%E5%B8%83%E5%B0%94%E5%9E%8B/">布尔型</a></li>
+<li><a href="appendix/%E5%87%BD%E6%95%B0%E5%9E%8B/">函数型</a></li>
+<li><a href="appendix/%E8%A1%A8/">表</a></li>
+<li><a href="appendix/%E5%AF%B9%E8%B1%A1index/">对象index</a></li>
+<li><a href="appendix/%E9%81%93%E5%85%B7index/">道具index</a></li>
+<li><a href="appendix/%E6%88%98%E6%96%97index/">战斗index</a></li>
+<li><a href="appendix/%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97/">扩展模块</a></li>
+<li><a href="appendix/%E4%BA%8B%E4%BB%B6%E6%80%BB%E8%A1%A8/">事件总表</a></li>
+<li><a href="appendix/setup%E9%85%8D%E7%BD%AE%E9%94%AE/">setup配置键</a></li>
+<li><a href="appendix/%E5%B8%B8%E9%87%8F/">常量</a></li>
+<li><a href="appendix/%E5%B8%B8%E9%87%8F-big5/">常量-big5</a></li>
+</ul>
+<h2 id="_2">待补充</h2>
+<p>无：所有函数都已有中文说明。</p>
+<h2 id="_3">全局函数</h2>
+<ul>
+<li><code>gadofile(FileName)</code>：不属于任何库的全局函数，加载并执行指定的 Lua 脚本文件，无论成功与否都返回 1。</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="nl/Charset/" class="btn btn-neutral float-right" title="Charset">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="nl/Charset/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2026-08-21 05:33:00.403087+00:00
+-->

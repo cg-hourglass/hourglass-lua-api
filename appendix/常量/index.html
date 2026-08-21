@@ -1,0 +1,3625 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://cg-hourglass.github.io/hourglass-lua-api/appendix/%E5%B8%B8%E9%87%8F/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>常量 - hourglass-gmsv Lua 脚本引擎</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u5e38\u91cf";
+        var mkdocs_page_input_path = "appendix/\u5e38\u91cf.md";
+        var mkdocs_page_url = "/hourglass-lua-api/appendix/%E5%B8%B8%E9%87%8F/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> hourglass-gmsv Lua 脚本引擎
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">首页</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">NL 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/Charset/">Charset</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/CreateAccount/">CreateAccount</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/CreateArgNpc/">CreateArgNpc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/CreateCharacter/">CreateCharacter</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/CreateNpc/">CreateNpc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/DelNpc/">DelNpc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/DeleteCharacter/">DeleteCharacter</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/GetErrorStr/">GetErrorStr</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegAfterWarpEvent/">RegAfterWarpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattleActionEvent/">RegBattleActionEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattleExitEvent/">RegBattleExitEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattleGetProfitEvent/">RegBattleGetProfitEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattleNewTurnStartEvent/">RegBattleNewTurnStartEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattleNextEnemyEvent/">RegBattleNextEnemyEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattleOverEvent/">RegBattleOverEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattlePVPMaxHpEvent/">RegBattlePVPMaxHpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattleSkillExpEvent/">RegBattleSkillExpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattleStartEvent/">RegBattleStartEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattleSurpriseEvent/">RegBattleSurpriseEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegCharActionEvent/">RegCharActionEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegDamageCalculateEvent/">RegDamageCalculateEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegDropEvent/">RegDropEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegEquipmentLevelEvent/">RegEquipmentLevelEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegFpConsumeEvent/">RegFpConsumeEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegGetExpEvent/">RegGetExpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegGetLoginPointEvent/">RegGetLoginPointEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegGetNextLevelExpEvent/">RegGetNextLevelExpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegHeadCoverEvent/">RegHeadCoverEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegItemDurabilityChangedEvent/">RegItemDurabilityChangedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegItemMaxDurabilityChangedEvent/">RegItemMaxDurabilityChangedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegItemOverLapEvent/">RegItemOverLapEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegItemString/">RegItemString</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegLevelUpEvent/">RegLevelUpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegLoginEvent/">RegLoginEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegLoginGateEvent/">RegLoginGateEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegLogoutEvent/">RegLogoutEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegMakeItemStringEvent/">RegMakeItemStringEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegMergeItemEvent/">RegMergeItemEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegNpcCreatedEvent/">RegNpcCreatedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegPartyEvent/">RegPartyEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegPetEquipCheckEvent/">RegPetEquipCheckEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegPetLevelUpEvent/">RegPetLevelUpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegPetRideImageEvent/">RegPetRideImageEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegProductSkillExpEvent/">RegProductSkillExpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegRightClickEvent/">RegRightClickEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegSealEvent/">RegSealEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegShutDownEvent/">RegShutDownEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegStallTradeEvent/">RegStallTradeEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegTalkEvent/">RegTalkEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegTechOptionEvent/">RegTechOptionEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegTitleChangedEvent/">RegTitleChangedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegVSEnemyCreateEvent/">RegVSEnemyCreateEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegWarpEvent/">RegWarpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/SetArgNpc/">SetArgNpc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/SetRemoteNpc/">SetRemoteNpc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/Ver/">Ver</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">NLG 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/CanTalk/">CanTalk</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/CharLook/">CharLook</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/CheckInFront/">CheckInFront</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/CheckTalkRange/">CheckTalkRange</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/DischargeParty/">DischargeParty</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/DropPlayer/">DropPlayer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/FindNpcByName/">FindNpcByName</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/FindNpcByPos/">FindNpcByPos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/FindUser/">FindUser</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetFloorPets/">GetFloorPets</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetFrontChar/">GetFrontChar</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetGameTime/">GetGameTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetIp/">GetIp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetMAC/">GetMAC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetMapName/">GetMapName</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetMapPlayer/">GetMapPlayer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetMapPlayerNum/">GetMapPlayerNum</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetMessage/">GetMessage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetOfflineEndTime/">GetOfflineEndTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetOfflineStartTime/">GetOfflineStartTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetOfflineStatus/">GetOfflineStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetOnLinePlayer/">GetOnLinePlayer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetStallItemPrice/">GetStallItemPrice</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetStallPetPrice/">GetStallPetPrice</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetStallStatus/">GetStallStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetString/">GetString</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/MapEffect/">MapEffect</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/MoveItem/">MoveItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/Rand/">Rand</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SendGraphEvent/">SendGraphEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SetAction/">SetAction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SetHeadIcon/">SetHeadIcon</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SetMapName/">SetMapName</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SetObj/">SetObj</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SetOfflinePlayer/">SetOfflinePlayer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SetPal/">SetPal</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SetShowName/">SetShowName</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/ShowTalked/">ShowTalked</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/ShowWindowTalked/">ShowWindowTalked</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SortItem/">SortItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SystemMessage/">SystemMessage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SystemMessageToMap/">SystemMessageToMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/Talk/">Talk</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/TalkToCli/">TalkToCli</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/TalkToFloor/">TalkToFloor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/Talked/">Talked</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/UpChar/">UpChar</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/Update_Party/">Update Party</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/WalkMove/">WalkMove</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/Walkable/">Walkable</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/WatchBattle/">WatchBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/WindowTalked/">WindowTalked</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/c/">C</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Char 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/AddGold/">AddGold</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/AddPet/">AddPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/AddSkill/">AddSkill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/CheckTitle/">CheckTitle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/ClrClrEvt/">ClrClrEvt</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/ClrEvtEnd/">ClrEvtEnd</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/ClrEvtNow/">ClrEvtNow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/DelItem/">DelItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/DelPet/">DelPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/DelSkill/">DelSkill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/DelSlotPet/">DelSlotPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/DischargeParty/">DischargeParty</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/DropPet/">DropPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/EndEvent/">EndEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/FeverStart/">FeverStart</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/FeverStop/">FeverStop</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/FindItemId/">FindItemId</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/FindTitleIndex/">FindTitleIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetBattleIndex/">GetBattleIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetCharPointer/">GetCharPointer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetCurrentBattleActionCount/">GetCurrentBattleActionCount</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetCurrentBattleTechActionCount/">GetCurrentBattleTechActionCount</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetData/">GetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetGuildID/">GetGuildID</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetGuildTitleID/">GetGuildTitleID</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetHouseItem/">GetHouseItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetHousePet/">GetHousePet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetItemIndex/">GetItemIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetPartyMember/">GetPartyMember</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetPartyMode/">GetPartyMode</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetPet/">GetPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetPoolItem/">GetPoolItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetPoolPet/">GetPoolPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetSkillExp/">GetSkillExp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetSkillID/">GetSkillID</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetSkillLevel/">GetSkillLevel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetSkillMaxLevel/">GetSkillMaxLevel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetTechId/">GetTechId</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetTitle/">GetTitle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GiveItem/">GiveItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GiveItemWithPos/">GiveItemWithPos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GivePet/">GivePet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GiveRecipe/">GiveRecipe</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/HasGuild/">HasGuild</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/HaveItem/">HaveItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/HavePet/">HavePet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/HaveSkill/">HaveSkill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/IsEventEnd/">IsEventEnd</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/IsEventNow/">IsEventNow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/IsFeverTime/">IsFeverTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/ItemNum/">ItemNum</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/ItemSlot/">ItemSlot</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/JoinParty/">JoinParty</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/LevelExp/">LevelExp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/NowEvent/">NowEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/PartyNum/">PartyNum</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/PetNum/">PetNum</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SelectTitle/">SelectTitle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetBonusEncountRate/">SetBonusEncountRate</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetData/">SetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetEvtEnd/">SetEvtEnd</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetEvtNow/">SetEvtNow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetItemPutEvent/">SetItemPutEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetLoopEvent/">SetLoopEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetPartyNPC/">SetPartyNPC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetPostOverEvent/">SetPostOverEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetPreOverEvent/">SetPreOverEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetSkillExp/">SetSkillExp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetSkillLevel/">SetSkillLevel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetTalkedEvent/">SetTalkedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetWalkPostEvent/">SetWalkPostEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetWalkPreEvent/">SetWalkPreEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetWindowTalkedEvent/">SetWindowTalkedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/Warp/">Warp</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Battle 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/ActionSelect/">ActionSelect</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/DelDefaultWinEvent/">DelDefaultWinEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/Encount/">Encount</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/ExitBattle/">ExitBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/FinishPlayerBattle/">FinishPlayerBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetBattleCharacterStatus/">GetBattleCharacterStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetBattleFieldAttribute/">GetBattleFieldAttribute</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetBattleMode/">GetBattleMode</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetCurrentBattle/">GetCurrentBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetEntryPosition/">GetEntryPosition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetGainMode/">GetGainMode</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetMod/">GetMod</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetNextBattle/">GetNextBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetNoRisk/">GetNoRisk</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetPlayIndex/">GetPlayIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetTargetSelect/">GetTargetSelect</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetTurn/">GetTurn</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetType/">GetType</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetUseFpByTechId/">GetUseFpByTechId</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetWinSide/">GetWinSide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/IsBattleSurprise/">IsBattleSurprise</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/IsBossBattle/">IsBossBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/IsUsing/">IsUsing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/IsWaitingCommand/">IsWaitingCommand</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/JoinBattle/">JoinBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/PVE/">PVE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/PVP/">PVP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/PetActionSelect/">PetActionSelect</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/SetBattleCharacterStatus/">SetBattleCharacterStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/SetBattleFieldAttribute/">SetBattleFieldAttribute</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/SetGainMode/">SetGainMode</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/SetMod/">SetMod</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/SetNextBattle/">SetNextBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/SetNoRisk/">SetNoRisk</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/SetType/">SetType</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/SetWinEvent/">SetWinEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/UseTech/">UseTech</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/UseTechById/">UseTechById</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Pet 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/AddSkill/">AddSkill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/ArtRank/">ArtRank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/DelSkill/">DelSkill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/FullArtRank/">FullArtRank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/GetGetableItemList/">GetGetableItemList</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/GetOwner/">GetOwner</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/GetRider/">GetRider</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/GetSkill/">GetSkill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/GetStatus/">GetStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/GetStealableItem/">GetStealableItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/GetUUID/">GetUUID</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/IsPet/">IsPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/Kill/">Kill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/LevelUp/">LevelUp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/ReBirth/">ReBirth</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/SetArtRank/">SetArtRank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/SetGetableItemList/">SetGetableItemList</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/SetStatus/">SetStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/SetStealableItem/">SetStealableItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/TradePet/">TradePet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/UpPet/">UpPet</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Item 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/GetData/">GetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/Kill/">Kill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/KillByIndex/">KillByIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/MakeItemAndRegist/">MakeItemAndRegist</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/SetData/">SetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/SetTimeLimit/">SetTimeLimit</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/TradeItem/">TradeItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/UpItem/">UpItem</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Obj 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/GetCharIndex/">GetCharIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/GetDelTime/">GetDelTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/GetFloor/">GetFloor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/GetMap/">GetMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/GetObject/">GetObject</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/GetType/">GetType</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/GetX/">GetX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/GetY/">GetY</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/SetDelTime/">SetDelTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/SetFloor/">SetFloor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/SetMap/">SetMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/SetType/">SetType</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/SetX/">SetX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/SetY/">SetY</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Map 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/guide/">说明</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/demo/">演示</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/DelLuaMap/">DelLuaMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/DumpLuaMap/">DumpLuaMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/GetAvailablePos/">GetAvailablePos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/GetDungeonExpireTime/">GetDungeonExpireTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/GetImage/">GetImage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/GetMapSize/">GetMapSize</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/MakeCopyMap/">MakeCopyMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/MakeMazeMap/">MakeMazeMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/SetImage/">SetImage</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Field 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../field/guide/">说明</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../field/Get/">Get</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../field/Set/">Set</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Foreach 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../foreach/Enemy/">Enemy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../foreach/Item/">Item</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../foreach/Npc/">Npc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../foreach/Object/">Object</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../foreach/Pet/">Pet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../foreach/Player/">Player</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../foreach/Warp/">Warp</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Data 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/EnemyGetData/">EnemyGetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/EnemyGetIndex/">EnemyGetIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/EnemyTempGetData/">EnemyTempGetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/EnemyTempGetIndex/">EnemyTempGetIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/ItemsetGetData/">ItemsetGetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/ItemsetGetIndex/">ItemsetGetIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/ItemsetGetRandomIntData/">ItemsetGetRandomIntData</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Setup 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../setup/Get/">Get</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../setup/Set/">Set</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SQL 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sql/Query/">Query</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Protocol 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../protocol/guide/">说明</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../protocol/AddPacket/">AddPacket</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../protocol/GetCharByFd/">GetCharByFd</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../protocol/OnRecv/">OnRecv</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../protocol/RawSend/">RawSend</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../protocol/Send/">Send</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../protocol/SendLuaCustomPacket/">SendLuaCustomPacket</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Offline 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../offline/GetOfflineEndTime/">GetOfflineEndTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../offline/GetOfflineStartTime/">GetOfflineStartTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../offline/GetOfflineStatus/">GetOfflineStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../offline/OfflineLogin/">OfflineLogin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../offline/OfflineLogout/">OfflineLogout</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../offline/SetOfflineEndTime/">SetOfflineEndTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../offline/SetOfflineLoopEvent/">SetOfflineLoopEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../offline/SetOfflinePlayer/">SetOfflinePlayer</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Debug 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../debug/OfflineLogin/">OfflineLogin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../debug/Snapshot/">Snapshot</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">附录</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../%E6%95%B0%E5%80%BC%E5%9E%8B/">数值型</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%E5%B8%83%E5%B0%94%E5%9E%8B/">布尔型</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%E5%87%BD%E6%95%B0%E5%9E%8B/">函数型</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%E8%A1%A8/">表</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%E5%AF%B9%E8%B1%A1index/">对象index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%E9%81%93%E5%85%B7index/">道具index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%E6%88%98%E6%96%97index/">战斗index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97/">扩展模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%E4%BA%8B%E4%BB%B6%E6%80%BB%E8%A1%A8/">事件总表</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup%E9%85%8D%E7%BD%AE%E9%94%AE/">Setup配置键</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">常量</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%E5%B8%B8%E9%87%8F-big5/">常量 big5</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">hourglass-gmsv Lua 脚本引擎</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">附录</li>
+      <li class="breadcrumb-item active">常量</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <!-- Generated. DO NOT EDIT. -->
+<h1 id="_1">常量（简体）</h1>
+<p>共 698 个常量。</p>
+<table>
+<thead>
+<tr>
+<th>常量</th>
+<th>常量值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%对象_点卷%</code></td>
+<td>-1</td>
+</tr>
+<tr>
+<td><code>%对象_积分%</code></td>
+<td>-1</td>
+</tr>
+<tr>
+<td><code>%宠物状态_无%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%宠物状态_待命%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%宠物状态_战斗%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%宠物状态_休息%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%对象类型_无%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%对象类型_全部%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%对象类型_人%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%对象类型_怪%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%对象类型_宠%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%对象类型_NPC%</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>%位置_头%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%位置_身%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%位置_左手%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%位置_右手%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%位置_腿%</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>%位置_首饰1%</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>%位置_首饰2%</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>%位置_水晶%</code></td>
+<td>7</td>
+</tr>
+<tr>
+<td><code>%组队模式_无%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%组队模式_队长%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%组队模式_队员%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%对象_战死%</code></td>
+<td>4000</td>
+</tr>
+<tr>
+<td><code>%对象_战斗信息开关%</code></td>
+<td>4001</td>
+</tr>
+<tr>
+<td><code>%对象_登陆富豪榜%</code></td>
+<td>4002</td>
+</tr>
+<tr>
+<td><code>%对象_组队开关%</code></td>
+<td>4003</td>
+</tr>
+<tr>
+<td><code>%对象_PK开关%</code></td>
+<td>4004</td>
+</tr>
+<tr>
+<td><code>%对象_对战开关%</code></td>
+<td>4004</td>
+</tr>
+<tr>
+<td><code>%对象_队聊开关%</code></td>
+<td>4005</td>
+</tr>
+<tr>
+<td><code>%对象_名片开关%</code></td>
+<td>4006</td>
+</tr>
+<tr>
+<td><code>%对象_交易开关%</code></td>
+<td>4007</td>
+</tr>
+<tr>
+<td><code>%对象_打卡%</code></td>
+<td>4008</td>
+</tr>
+<tr>
+<td><code>%对象_网络超时%</code></td>
+<td>4009</td>
+</tr>
+<tr>
+<td><code>%对象_家族开关%</code></td>
+<td>4010</td>
+</tr>
+<tr>
+<td><code>%对象_DEBUG开关%</code></td>
+<td>6000</td>
+</tr>
+<tr>
+<td><code>%对象_使用MIC%</code></td>
+<td>6001</td>
+</tr>
+<tr>
+<td><code>%对象_已保存%</code></td>
+<td>6002</td>
+</tr>
+<tr>
+<td><code>%对象_不遇敌开关%</code></td>
+<td>6003</td>
+</tr>
+<tr>
+<td><code>%地图类型_普通%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%地图类型_迷宫%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%地图类型_家族%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%地图类型_房屋%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%地图类型_LUAMAP%</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>%种族_人型%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%种族_龙%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%种族_不死%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%种族_飞行%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%种族_昆虫%</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>%种族_植物%</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>%种族_野兽%</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>%种族_特殊%</code></td>
+<td>7</td>
+</tr>
+<tr>
+<td><code>%种族_金属%</code></td>
+<td>8</td>
+</tr>
+<tr>
+<td><code>%种族_邪魔%</code></td>
+<td>9</td>
+</tr>
+<tr>
+<td><code>%种族_神%</code></td>
+<td>10</td>
+</tr>
+<tr>
+<td><code>%种族_精灵%</code></td>
+<td>11</td>
+</tr>
+<tr>
+<td><code>%属性_地%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%属性_水%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%属性_火%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%属性_风%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%对象_序%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%对象_形象%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%对象_可视%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%对象_原形%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%对象_MAP%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%对象_地图%</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>%对象_X%</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>%对象_Y%</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>%对象_方向%</code></td>
+<td>7</td>
+</tr>
+<tr>
+<td><code>%对象_等级%</code></td>
+<td>8</td>
+</tr>
+<tr>
+<td><code>%对象_血%</code></td>
+<td>9</td>
+</tr>
+<tr>
+<td><code>%对象_魔%</code></td>
+<td>10</td>
+</tr>
+<tr>
+<td><code>%对象_体力%</code></td>
+<td>11</td>
+</tr>
+<tr>
+<td><code>%对象_力量%</code></td>
+<td>12</td>
+</tr>
+<tr>
+<td><code>%对象_强度%</code></td>
+<td>13</td>
+</tr>
+<tr>
+<td><code>%对象_速度%</code></td>
+<td>14</td>
+</tr>
+<tr>
+<td><code>%对象_魔法%</code></td>
+<td>15</td>
+</tr>
+<tr>
+<td><code>%对象_运%</code></td>
+<td>16</td>
+</tr>
+<tr>
+<td><code>%对象_种族%</code></td>
+<td>17</td>
+</tr>
+<tr>
+<td><code>%对象_地属性%</code></td>
+<td>18</td>
+</tr>
+<tr>
+<td><code>%对象_水属性%</code></td>
+<td>19</td>
+</tr>
+<tr>
+<td><code>%对象_火属性%</code></td>
+<td>20</td>
+</tr>
+<tr>
+<td><code>%对象_风属性%</code></td>
+<td>21</td>
+</tr>
+<tr>
+<td><code>%对象_抗毒%</code></td>
+<td>22</td>
+</tr>
+<tr>
+<td><code>%对象_抗睡%</code></td>
+<td>23</td>
+</tr>
+<tr>
+<td><code>%对象_抗石%</code></td>
+<td>24</td>
+</tr>
+<tr>
+<td><code>%对象_抗醉%</code></td>
+<td>25</td>
+</tr>
+<tr>
+<td><code>%对象_抗乱%</code></td>
+<td>26</td>
+</tr>
+<tr>
+<td><code>%对象_抗忘%</code></td>
+<td>27</td>
+</tr>
+<tr>
+<td><code>%对象_必杀%</code></td>
+<td>28</td>
+</tr>
+<tr>
+<td><code>%对象_反击%</code></td>
+<td>29</td>
+</tr>
+<tr>
+<td><code>%对象_命中%</code></td>
+<td>30</td>
+</tr>
+<tr>
+<td><code>%对象_闪躲%</code></td>
+<td>31</td>
+</tr>
+<tr>
+<td><code>%对象_道具栏%</code></td>
+<td>32</td>
+</tr>
+<tr>
+<td><code>%对象_技能栏%</code></td>
+<td>33</td>
+</tr>
+<tr>
+<td><code>%对象_死亡数%</code></td>
+<td>34</td>
+</tr>
+<tr>
+<td><code>%对象_伤害数%</code></td>
+<td>35</td>
+</tr>
+<tr>
+<td><code>%对象_杀宠数%</code></td>
+<td>36</td>
+</tr>
+<tr>
+<td><code>%对象_占卜时间%</code></td>
+<td>37</td>
+</tr>
+<tr>
+<td><code>%对象_受伤%</code></td>
+<td>38</td>
+</tr>
+<tr>
+<td><code>%对象_移间%</code></td>
+<td>39</td>
+</tr>
+<tr>
+<td><code>%对象_循时%</code></td>
+<td>40</td>
+</tr>
+<tr>
+<td><code>%对象_经验%</code></td>
+<td>41</td>
+</tr>
+<tr>
+<td><code>%对象_升级点%</code></td>
+<td>42</td>
+</tr>
+<tr>
+<td><code>%对象_图类%</code></td>
+<td>43</td>
+</tr>
+<tr>
+<td><code>%对象_名色%</code></td>
+<td>44</td>
+</tr>
+<tr>
+<td><code>%对象_ALLOCPOINT%</code></td>
+<td>45</td>
+</tr>
+<tr>
+<td><code>%对象_吃时%</code></td>
+<td>46</td>
+</tr>
+<tr>
+<td><code>%对象_DataPN%</code></td>
+<td>47</td>
+</tr>
+<tr>
+<td><code>%宠物_主人RegistNumber%</code></td>
+<td>47</td>
+</tr>
+<tr>
+<td><code>%对象_RegistNumber%</code></td>
+<td>48</td>
+</tr>
+<tr>
+<td><code>%对象_职业%</code></td>
+<td>49</td>
+</tr>
+<tr>
+<td><code>%对象_职阶%</code></td>
+<td>50</td>
+</tr>
+<tr>
+<td><code>%对象_职类ID%</code></td>
+<td>51</td>
+</tr>
+<tr>
+<td><code>%宠物_技能栏%</code></td>
+<td>51</td>
+</tr>
+<tr>
+<td><code>%对象_脸%</code></td>
+<td>52</td>
+</tr>
+<tr>
+<td><code>%宠物_获取时等级%</code></td>
+<td>52</td>
+</tr>
+<tr>
+<td><code>%对象_金币%</code></td>
+<td>53</td>
+</tr>
+<tr>
+<td><code>%对象_银行金币%</code></td>
+<td>54</td>
+</tr>
+<tr>
+<td><code>%对象_耐力%</code></td>
+<td>55</td>
+</tr>
+<tr>
+<td><code>%对象_灵巧%</code></td>
+<td>56</td>
+</tr>
+<tr>
+<td><code>%对象_智力%</code></td>
+<td>57</td>
+</tr>
+<tr>
+<td><code>%对象_魅力%</code></td>
+<td>58</td>
+</tr>
+<tr>
+<td><code>%对象_声望%</code></td>
+<td>59</td>
+</tr>
+<tr>
+<td><code>%对象_称号%</code></td>
+<td>60</td>
+</tr>
+<tr>
+<td><code>%对象_记录点%</code></td>
+<td>61</td>
+</tr>
+<tr>
+<td><code>%对象_战宠%</code></td>
+<td>62</td>
+</tr>
+<tr>
+<td><code>%对象_聊天距离%</code></td>
+<td>63</td>
+</tr>
+<tr>
+<td><code>%对象_HelpPoint%</code></td>
+<td>64</td>
+</tr>
+<tr>
+<td><code>%对象_登陆次数%</code></td>
+<td>65</td>
+</tr>
+<tr>
+<td><code>%对象_说次%</code></td>
+<td>66</td>
+</tr>
+<tr>
+<td><code>%对象_宠得数%</code></td>
+<td>67</td>
+</tr>
+<tr>
+<td><code>%对象_邮数%</code></td>
+<td>68</td>
+</tr>
+<tr>
+<td><code>%对象_生产数%</code></td>
+<td>69</td>
+</tr>
+<tr>
+<td><code>%对象_走次%</code></td>
+<td>70</td>
+</tr>
+<tr>
+<td><code>%对象_宠死数%</code></td>
+<td>71</td>
+</tr>
+<tr>
+<td><code>%对象_宠复数%</code></td>
+<td>72</td>
+</tr>
+<tr>
+<td><code>%对象_宠治数%</code></td>
+<td>73</td>
+</tr>
+<tr>
+<td><code>%对象_封印数%</code></td>
+<td>74</td>
+</tr>
+<tr>
+<td><code>%对象_OtherFlg%</code></td>
+<td>75</td>
+</tr>
+<tr>
+<td><code>%对象_日声望上限%</code></td>
+<td>76</td>
+</tr>
+<tr>
+<td><code>%对象_声望获取时间%</code></td>
+<td>77</td>
+</tr>
+<tr>
+<td><code>%对象_声望下降时间%</code></td>
+<td>78</td>
+</tr>
+<tr>
+<td><code>%对象_掉魂%</code></td>
+<td>38</td>
+</tr>
+<tr>
+<td><code>%LASTTALKELDER%</code></td>
+<td>80</td>
+</tr>
+<tr>
+<td><code>%ENDEVENT1%</code></td>
+<td>81</td>
+</tr>
+<tr>
+<td><code>%ENDEVENT2%</code></td>
+<td>82</td>
+</tr>
+<tr>
+<td><code>%ENDEVENT3%</code></td>
+<td>83</td>
+</tr>
+<tr>
+<td><code>%ENDEVENT4%</code></td>
+<td>84</td>
+</tr>
+<tr>
+<td><code>%ENDEVENT5%</code></td>
+<td>85</td>
+</tr>
+<tr>
+<td><code>%ENDEVENT6%</code></td>
+<td>86</td>
+</tr>
+<tr>
+<td><code>%ENDEVENT7%</code></td>
+<td>87</td>
+</tr>
+<tr>
+<td><code>%ENDEVENT8%</code></td>
+<td>88</td>
+</tr>
+<tr>
+<td><code>%NOWEVENT1%</code></td>
+<td>89</td>
+</tr>
+<tr>
+<td><code>%NOWEVENT2%</code></td>
+<td>90</td>
+</tr>
+<tr>
+<td><code>%NOWEVENT3%</code></td>
+<td>91</td>
+</tr>
+<tr>
+<td><code>%NOWEVENT4%</code></td>
+<td>92</td>
+</tr>
+<tr>
+<td><code>%NOWEVENT5%</code></td>
+<td>93</td>
+</tr>
+<tr>
+<td><code>%NOWEVENT6%</code></td>
+<td>94</td>
+</tr>
+<tr>
+<td><code>%NOWEVENT7%</code></td>
+<td>95</td>
+</tr>
+<tr>
+<td><code>%NOWEVENT8%</code></td>
+<td>96</td>
+</tr>
+<tr>
+<td><code>%RECIPE1%</code></td>
+<td>97</td>
+</tr>
+<tr>
+<td><code>%RECIPE2%</code></td>
+<td>98</td>
+</tr>
+<tr>
+<td><code>%RECIPE3%</code></td>
+<td>99</td>
+</tr>
+<tr>
+<td><code>%RECIPE4%</code></td>
+<td>100</td>
+</tr>
+<tr>
+<td><code>%RECIPE5%</code></td>
+<td>101</td>
+</tr>
+<tr>
+<td><code>%RECIPE6%</code></td>
+<td>102</td>
+</tr>
+<tr>
+<td><code>%RECIPE7%</code></td>
+<td>103</td>
+</tr>
+<tr>
+<td><code>%RECIPE8%</code></td>
+<td>104</td>
+</tr>
+<tr>
+<td><code>%RECIPE9%</code></td>
+<td>105</td>
+</tr>
+<tr>
+<td><code>%RECIPE10%</code></td>
+<td>106</td>
+</tr>
+<tr>
+<td><code>%RECIPE11%</code></td>
+<td>107</td>
+</tr>
+<tr>
+<td><code>%RECIPE12%</code></td>
+<td>108</td>
+</tr>
+<tr>
+<td><code>%RECIPE13%</code></td>
+<td>109</td>
+</tr>
+<tr>
+<td><code>%RECIPE14%</code></td>
+<td>110</td>
+</tr>
+<tr>
+<td><code>%RECIPE15%</code></td>
+<td>111</td>
+</tr>
+<tr>
+<td><code>%RECIPE16%</code></td>
+<td>112</td>
+</tr>
+<tr>
+<td><code>%RECIPE17%</code></td>
+<td>113</td>
+</tr>
+<tr>
+<td><code>%RECIPE18%</code></td>
+<td>114</td>
+</tr>
+<tr>
+<td><code>%RECIPE19%</code></td>
+<td>115</td>
+</tr>
+<tr>
+<td><code>%RECIPE20%</code></td>
+<td>116</td>
+</tr>
+<tr>
+<td><code>%RECIPE21%</code></td>
+<td>117</td>
+</tr>
+<tr>
+<td><code>%RECIPE22%</code></td>
+<td>118</td>
+</tr>
+<tr>
+<td><code>%RECIPE23%</code></td>
+<td>119</td>
+</tr>
+<tr>
+<td><code>%RECIPE24%</code></td>
+<td>120</td>
+</tr>
+<tr>
+<td><code>%RECIPE25%</code></td>
+<td>121</td>
+</tr>
+<tr>
+<td><code>%RECIPE26%</code></td>
+<td>122</td>
+</tr>
+<tr>
+<td><code>%RECIPE27%</code></td>
+<td>123</td>
+</tr>
+<tr>
+<td><code>%RECIPE28%</code></td>
+<td>124</td>
+</tr>
+<tr>
+<td><code>%RECIPE29%</code></td>
+<td>125</td>
+</tr>
+<tr>
+<td><code>%RECIPE30%</code></td>
+<td>126</td>
+</tr>
+<tr>
+<td><code>%RECIPE31%</code></td>
+<td>127</td>
+</tr>
+<tr>
+<td><code>%RECIPE32%</code></td>
+<td>128</td>
+</tr>
+<tr>
+<td><code>%ALBUM1%</code></td>
+<td>129</td>
+</tr>
+<tr>
+<td><code>%ALBUM2%</code></td>
+<td>130</td>
+</tr>
+<tr>
+<td><code>%ALBUM3%</code></td>
+<td>131</td>
+</tr>
+<tr>
+<td><code>%ALBUM4%</code></td>
+<td>132</td>
+</tr>
+<tr>
+<td><code>%ALBUM5%</code></td>
+<td>133</td>
+</tr>
+<tr>
+<td><code>%ALBUM6%</code></td>
+<td>134</td>
+</tr>
+<tr>
+<td><code>%ALBUM7%</code></td>
+<td>135</td>
+</tr>
+<tr>
+<td><code>%ALBUM8%</code></td>
+<td>136</td>
+</tr>
+<tr>
+<td><code>%ALBUM9%</code></td>
+<td>137</td>
+</tr>
+<tr>
+<td><code>%ALBUM10%</code></td>
+<td>138</td>
+</tr>
+<tr>
+<td><code>%ALBUM11%</code></td>
+<td>139</td>
+</tr>
+<tr>
+<td><code>%ALBUM12%</code></td>
+<td>140</td>
+</tr>
+<tr>
+<td><code>%ALBUM13%</code></td>
+<td>141</td>
+</tr>
+<tr>
+<td><code>%ALBUM14%</code></td>
+<td>142</td>
+</tr>
+<tr>
+<td><code>%ALBUM15%</code></td>
+<td>143</td>
+</tr>
+<tr>
+<td><code>%ALBUM16%</code></td>
+<td>144</td>
+</tr>
+<tr>
+<td><code>%ALBUM17%</code></td>
+<td>145</td>
+</tr>
+<tr>
+<td><code>%ALBUM18%</code></td>
+<td>146</td>
+</tr>
+<tr>
+<td><code>%ALBUM19%</code></td>
+<td>147</td>
+</tr>
+<tr>
+<td><code>%ALBUM20%</code></td>
+<td>148</td>
+</tr>
+<tr>
+<td><code>%ALBUM21%</code></td>
+<td>149</td>
+</tr>
+<tr>
+<td><code>%ALBUM22%</code></td>
+<td>150</td>
+</tr>
+<tr>
+<td><code>%ALBUM23%</code></td>
+<td>151</td>
+</tr>
+<tr>
+<td><code>%ALBUM24%</code></td>
+<td>152</td>
+</tr>
+<tr>
+<td><code>%ALBUM25%</code></td>
+<td>153</td>
+</tr>
+<tr>
+<td><code>%ALBUM26%</code></td>
+<td>154</td>
+</tr>
+<tr>
+<td><code>%ALBUM27%</code></td>
+<td>155</td>
+</tr>
+<tr>
+<td><code>%ALBUM28%</code></td>
+<td>156</td>
+</tr>
+<tr>
+<td><code>%ALBUM29%</code></td>
+<td>157</td>
+</tr>
+<tr>
+<td><code>%ALBUM30%</code></td>
+<td>158</td>
+</tr>
+<tr>
+<td><code>%对象_银行最大宠数%</code></td>
+<td>159</td>
+</tr>
+<tr>
+<td><code>%对象_银行最大物数%</code></td>
+<td>160</td>
+</tr>
+<tr>
+<td><code>%对象_DP%</code></td>
+<td>161</td>
+</tr>
+<tr>
+<td><code>%对象_话色%</code></td>
+<td>162</td>
+</tr>
+<tr>
+<td><code>%对象_位置%</code></td>
+<td>163</td>
+</tr>
+<tr>
+<td><code>%对象_GM%</code></td>
+<td>164</td>
+</tr>
+<tr>
+<td><code>%DUNGEON_CLR_1%</code></td>
+<td>165</td>
+</tr>
+<tr>
+<td><code>%DUNGEON_CLR_2%</code></td>
+<td>166</td>
+</tr>
+<tr>
+<td><code>%DUNGEON_CLR_3%</code></td>
+<td>167</td>
+</tr>
+<tr>
+<td><code>%LASTSAVETIME%</code></td>
+<td>168</td>
+</tr>
+<tr>
+<td><code>%RANKDOWNFLG%</code></td>
+<td>169</td>
+</tr>
+<tr>
+<td><code>%PENALTY%</code></td>
+<td>170</td>
+</tr>
+<tr>
+<td><code>%对象_掉魂%</code></td>
+<td>170</td>
+</tr>
+<tr>
+<td><code>%对象_登陆点%</code></td>
+<td>171</td>
+</tr>
+<tr>
+<td><code>%FEVER_RESETTIME%</code></td>
+<td>172</td>
+</tr>
+<tr>
+<td><code>%对象_卡时%</code></td>
+<td>173</td>
+</tr>
+<tr>
+<td><code>%对象_房子ID%</code></td>
+<td>174</td>
+</tr>
+<tr>
+<td><code>%对象_房子期限%</code></td>
+<td>175</td>
+</tr>
+<tr>
+<td><code>%TIMEOUTDUNGEONID%</code></td>
+<td>176</td>
+</tr>
+<tr>
+<td><code>%TIMEOUTSERVERNUMBER%</code></td>
+<td>177</td>
+</tr>
+<tr>
+<td><code>%对象_原始图档%</code></td>
+<td>178</td>
+</tr>
+<tr>
+<td><code>%对象_名字%</code></td>
+<td>2000</td>
+</tr>
+<tr>
+<td><code>%对象_原名%</code></td>
+<td>2000</td>
+</tr>
+<tr>
+<td><code>%对象_玩家称号%</code></td>
+<td>2001</td>
+</tr>
+<tr>
+<td><code>%对象_宠名%</code></td>
+<td>2001</td>
+</tr>
+<tr>
+<td><code>%对象_CDK%</code></td>
+<td>2002</td>
+</tr>
+<tr>
+<td><code>%对象_账号%</code></td>
+<td>2002</td>
+</tr>
+<tr>
+<td><code>%对象_主人CDK%</code></td>
+<td>2003</td>
+</tr>
+<tr>
+<td><code>%对象_主人名字%</code></td>
+<td>2004</td>
+</tr>
+<tr>
+<td><code>%对象_主人原名%</code></td>
+<td>2004</td>
+</tr>
+<tr>
+<td><code>%对象_战斗中%</code></td>
+<td>8000</td>
+</tr>
+<tr>
+<td><code>%对象_战斗状态%</code></td>
+<td>8000</td>
+</tr>
+<tr>
+<td><code>%对象_战斗Index%</code></td>
+<td>8001</td>
+</tr>
+<tr>
+<td><code>%对象_战斗Side%</code></td>
+<td>8002</td>
+</tr>
+<tr>
+<td><code>%对象_最大血%</code></td>
+<td>8015</td>
+</tr>
+<tr>
+<td><code>%对象_最大魔%</code></td>
+<td>8016</td>
+</tr>
+<tr>
+<td><code>%对象_攻击力%</code></td>
+<td>8017</td>
+</tr>
+<tr>
+<td><code>%对象_防御力%</code></td>
+<td>8018</td>
+</tr>
+<tr>
+<td><code>%对象_敏捷%</code></td>
+<td>8019</td>
+</tr>
+<tr>
+<td><code>%对象_魔法攻击力%</code></td>
+<td>8020</td>
+</tr>
+<tr>
+<td><code>%对象_魔强%</code></td>
+<td>8020</td>
+</tr>
+<tr>
+<td><code>%对象_回复%</code></td>
+<td>8021</td>
+</tr>
+<tr>
+<td><code>%对象_OBJ%</code></td>
+<td>8065</td>
+</tr>
+<tr>
+<td><code>%对象_获得经验%</code></td>
+<td>8072</td>
+</tr>
+<tr>
+<td><code>%对象_战得DP%</code></td>
+<td>8072</td>
+</tr>
+<tr>
+<td><code>%对象_组队模式%</code></td>
+<td>8118</td>
+</tr>
+<tr>
+<td><code>%对象_香下限%</code></td>
+<td>8157</td>
+</tr>
+<tr>
+<td><code>%对象_香上限%</code></td>
+<td>8158</td>
+</tr>
+<tr>
+<td><code>%对象_香步数%</code></td>
+<td>8159</td>
+</tr>
+<tr>
+<td><code>%对象_行走速度%</code></td>
+<td>8108</td>
+</tr>
+<tr>
+<td><code>%宠物_忠诚%</code></td>
+<td>8130</td>
+</tr>
+<tr>
+<td><code>%按钮_无%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%按钮_确定%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%按钮_关闭%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%按钮_确定关闭%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%按钮_是%</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>%按钮_否%</code></td>
+<td>8</td>
+</tr>
+<tr>
+<td><code>%按钮_是否%</code></td>
+<td>12</td>
+</tr>
+<tr>
+<td><code>%按钮_下取消%</code></td>
+<td>34</td>
+</tr>
+<tr>
+<td><code>%按钮_上取消%</code></td>
+<td>18</td>
+</tr>
+<tr>
+<td><code>%按钮_上下取消%</code></td>
+<td>50</td>
+</tr>
+<tr>
+<td><code>%按钮_上一页%</code></td>
+<td>16</td>
+</tr>
+<tr>
+<td><code>%按钮_下一页%</code></td>
+<td>32</td>
+</tr>
+<tr>
+<td><code>%道具类型_剑%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%道具类型_斧%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>7</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>8</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>9</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>10</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>11</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>12</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>13</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>14</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>15</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>16</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>17</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>18</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>19</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>20</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>21</td>
+</tr>
+<tr>
+<td><code>%道具类型_枪%</code></td>
+<td>22</td>
+</tr>
+<tr>
+<td><code>%道具_鉴前名%</code></td>
+<td>2000</td>
+</tr>
+<tr>
+<td><code>%道具_名字%</code></td>
+<td>2001</td>
+</tr>
+<tr>
+<td><code>%道具_刻印%</code></td>
+<td>2002</td>
+</tr>
+<tr>
+<td><code>%道具_自用参数%</code></td>
+<td>2003</td>
+</tr>
+<tr>
+<td><code>%道具_刻印玩家%</code></td>
+<td>2004</td>
+</tr>
+<tr>
+<td><code>%道具_序%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%道具_ID%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%道具_图%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%道具_价格%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%道具_类型%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%道具_双手%</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>%道具_双击%</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>%道具_可双击%</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>%道具_战斗可用%</code></td>
+<td>7</td>
+</tr>
+<tr>
+<td><code>%道具_堆叠数%</code></td>
+<td>9</td>
+</tr>
+<tr>
+<td><code>%道具_最大堆叠数%</code></td>
+<td>10</td>
+</tr>
+<tr>
+<td><code>%道具_等级%</code></td>
+<td>11</td>
+</tr>
+<tr>
+<td><code>%道具_最大耐久%</code></td>
+<td>13</td>
+</tr>
+<tr>
+<td><code>%道具_最小攻击数量%</code></td>
+<td>14</td>
+</tr>
+<tr>
+<td><code>%道具_最大攻击数量%</code></td>
+<td>15</td>
+</tr>
+<tr>
+<td><code>%道具_攻击%</code></td>
+<td>18</td>
+</tr>
+<tr>
+<td><code>%道具_防御%</code></td>
+<td>19</td>
+</tr>
+<tr>
+<td><code>%道具_敏捷%</code></td>
+<td>20</td>
+</tr>
+<tr>
+<td><code>%道具_精神%</code></td>
+<td>21</td>
+</tr>
+<tr>
+<td><code>%道具_回复%</code></td>
+<td>22</td>
+</tr>
+<tr>
+<td><code>%道具_必杀%</code></td>
+<td>23</td>
+</tr>
+<tr>
+<td><code>%道具_反击%</code></td>
+<td>24</td>
+</tr>
+<tr>
+<td><code>%道具_命中%</code></td>
+<td>25</td>
+</tr>
+<tr>
+<td><code>%道具_闪躲%</code></td>
+<td>26</td>
+</tr>
+<tr>
+<td><code>%道具_HP%</code></td>
+<td>27</td>
+</tr>
+<tr>
+<td><code>%道具_MP%</code></td>
+<td>28</td>
+</tr>
+<tr>
+<td><code>%道具_生命%</code></td>
+<td>27</td>
+</tr>
+<tr>
+<td><code>%道具_魔力%</code></td>
+<td>28</td>
+</tr>
+<tr>
+<td><code>%道具_幸运%</code></td>
+<td>29</td>
+</tr>
+<tr>
+<td><code>%道具_魅力%</code></td>
+<td>31</td>
+</tr>
+<tr>
+<td><code>%道具_属性一%</code></td>
+<td>32</td>
+</tr>
+<tr>
+<td><code>%道具_属性二%</code></td>
+<td>33</td>
+</tr>
+<tr>
+<td><code>%道具_属性一值%</code></td>
+<td>34</td>
+</tr>
+<tr>
+<td><code>%道具_属性二值%</code></td>
+<td>35</td>
+</tr>
+<tr>
+<td><code>%道具_耐力%</code></td>
+<td>36</td>
+</tr>
+<tr>
+<td><code>%道具_灵巧%</code></td>
+<td>37</td>
+</tr>
+<tr>
+<td><code>%道具_智力%</code></td>
+<td>38</td>
+</tr>
+<tr>
+<td><code>%道具_毒抗%</code></td>
+<td>39</td>
+</tr>
+<tr>
+<td><code>%道具_睡抗%</code></td>
+<td>40</td>
+</tr>
+<tr>
+<td><code>%道具_石抗%</code></td>
+<td>41</td>
+</tr>
+<tr>
+<td><code>%道具_醉抗%</code></td>
+<td>42</td>
+</tr>
+<tr>
+<td><code>%道具_乱抗%</code></td>
+<td>43</td>
+</tr>
+<tr>
+<td><code>%道具_忘抗%</code></td>
+<td>44</td>
+</tr>
+<tr>
+<td><code>%道具_特殊类型%</code></td>
+<td>45</td>
+</tr>
+<tr>
+<td><code>%道具_子参一%</code></td>
+<td>46</td>
+</tr>
+<tr>
+<td><code>%道具_子参二%</code></td>
+<td>47</td>
+</tr>
+<tr>
+<td><code>%道具_宝石武%</code></td>
+<td>48</td>
+</tr>
+<tr>
+<td><code>%道具_宝石防%</code></td>
+<td>49</td>
+</tr>
+<tr>
+<td><code>%道具_宝石饰品%</code></td>
+<td>50</td>
+</tr>
+<tr>
+<td><code>%道具_登出消失%</code></td>
+<td>52</td>
+</tr>
+<tr>
+<td><code>%道具_丢地消失%</code></td>
+<td>53</td>
+</tr>
+<tr>
+<td><code>%道具_宠邮%</code></td>
+<td>54</td>
+</tr>
+<tr>
+<td><code>%道具_魔抗%</code></td>
+<td>55</td>
+</tr>
+<tr>
+<td><code>%道具_可出售%</code></td>
+<td>56</td>
+</tr>
+<tr>
+<td><code>%道具_已鉴定%</code></td>
+<td>63</td>
+</tr>
+<tr>
+<td><code>%道具_耐久%</code></td>
+<td>65</td>
+</tr>
+<tr>
+<td><code>%道具_宠物帮助%</code></td>
+<td>75</td>
+</tr>
+<tr>
+<td><code>%道具_Obj索引%</code></td>
+<td>4000</td>
+</tr>
+<tr>
+<td><code>%道具_已装备%</code></td>
+<td>4002</td>
+</tr>
+<tr>
+<td><code>%窗口_信息框%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%窗口_输入框%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%窗口_选择框%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%窗口_宠物选择框%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%窗口_组队选择框%</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>%窗口_买卖框%</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>%窗口_商店买%</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>%窗口_商店卖%</code></td>
+<td>7</td>
+</tr>
+<tr>
+<td><code>%窗口_巨信息框%</code></td>
+<td>10</td>
+</tr>
+<tr>
+<td><code>%窗口_巨输入框%</code></td>
+<td>11</td>
+</tr>
+<tr>
+<td><code>%NPC_银行%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%NPC_护士%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%NPC_医生%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%战斗_普通%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%战斗_PVP%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%战奖_普通%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%战奖_PVP%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%宠档_体成%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%宠档_力成%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%宠档_强成%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%宠档_敏成%</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>%宠档_魔成%</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>%颜色_白色%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%颜色_青色%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%颜色_紫色%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%颜色_蓝色%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%颜色_黄色%</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>%颜色_绿色%</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>%颜色_红色%</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>%颜色_灰色%</code></td>
+<td>7</td>
+</tr>
+<tr>
+<td><code>%颜色_灰蓝色%</code></td>
+<td>8</td>
+</tr>
+<tr>
+<td><code>%颜色_灰绿色%</code></td>
+<td>9</td>
+</tr>
+<tr>
+<td><code>%字体_大%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%字体_中%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%字体_小%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%动作_站立%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%动作_走路%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%动作_跑步%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%动作_攻击%</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>%动作_魔法%</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>%动作_投掷%</code></td>
+<td>7</td>
+</tr>
+<tr>
+<td><code>%动作_受伤%</code></td>
+<td>8</td>
+</tr>
+<tr>
+<td><code>%动作_防御%</code></td>
+<td>9</td>
+</tr>
+<tr>
+<td><code>%动作_倒下%</code></td>
+<td>10</td>
+</tr>
+<tr>
+<td><code>%动作_坐下%</code></td>
+<td>11</td>
+</tr>
+<tr>
+<td><code>%动作_招手%</code></td>
+<td>12</td>
+</tr>
+<tr>
+<td><code>%动作_高兴%</code></td>
+<td>13</td>
+</tr>
+<tr>
+<td><code>%动作_生气%</code></td>
+<td>14</td>
+</tr>
+<tr>
+<td><code>%动作_悲伤%</code></td>
+<td>15</td>
+</tr>
+<tr>
+<td><code>%动作_点头%</code></td>
+<td>16</td>
+</tr>
+<tr>
+<td><code>%动作_石头%</code></td>
+<td>17</td>
+</tr>
+<tr>
+<td><code>%动作_剪刀%</code></td>
+<td>18</td>
+</tr>
+<tr>
+<td><code>%动作_布%</code></td>
+<td>19</td>
+</tr>
+<tr>
+<td><code>%左上%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%锟斤拷%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%右上%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%锟斤拷%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%右下%</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>%锟斤拷%</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>%左下%</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>%锟斤拷%</code></td>
+<td>7</td>
+</tr>
+<tr>
+<td><code>%战斗_观战%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%战斗_BOSS战%</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>%RECV_W%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%RECV_EV%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%RECV_M%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%RECV_EN%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%RECV_DU%</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>%RECV_EO%</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>%RECV_LB%</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>%RECV_B%</code></td>
+<td>7</td>
+</tr>
+<tr>
+<td><code>%RECV_ID%</code></td>
+<td>8</td>
+</tr>
+<tr>
+<td><code>%RECV_IDF%</code></td>
+<td>9</td>
+</tr>
+<tr>
+<td><code>%RECV_PI%</code></td>
+<td>10</td>
+</tr>
+<tr>
+<td><code>%RECV_DI%</code></td>
+<td>11</td>
+</tr>
+<tr>
+<td><code>%RECV_DG%</code></td>
+<td>12</td>
+</tr>
+<tr>
+<td><code>%RECV_DP%</code></td>
+<td>13</td>
+</tr>
+<tr>
+<td><code>%RECV_MI%</code></td>
+<td>14</td>
+</tr>
+<tr>
+<td><code>%RECV_IR%</code></td>
+<td>15</td>
+</tr>
+<tr>
+<td><code>%RECV_MSG%</code></td>
+<td>16</td>
+</tr>
+<tr>
+<td><code>%RECV_ALI%</code></td>
+<td>17</td>
+</tr>
+<tr>
+<td><code>%RECV_PMSG%</code></td>
+<td>18</td>
+</tr>
+<tr>
+<td><code>%RECV_DAB%</code></td>
+<td>19</td>
+</tr>
+<tr>
+<td><code>%RECV_AAB%</code></td>
+<td>20</td>
+</tr>
+<tr>
+<td><code>%RECV_GI%</code></td>
+<td>21</td>
+</tr>
+<tr>
+<td><code>%RECV_GT%</code></td>
+<td>22</td>
+</tr>
+<tr>
+<td><code>%RECV_BGT%</code></td>
+<td>23</td>
+</tr>
+<tr>
+<td><code>%RECV_AGM%</code></td>
+<td>24</td>
+</tr>
+<tr>
+<td><code>%RECV_RGM%</code></td>
+<td>25</td>
+</tr>
+<tr>
+<td><code>%RECV_GML%</code></td>
+<td>26</td>
+</tr>
+<tr>
+<td><code>%RECV_PGML%</code></td>
+<td>27</td>
+</tr>
+<tr>
+<td><code>%RECV_PRV%</code></td>
+<td>28</td>
+</tr>
+<tr>
+<td><code>%RECV_PRS%</code></td>
+<td>29</td>
+</tr>
+<tr>
+<td><code>%RECV_PRD%</code></td>
+<td>30</td>
+</tr>
+<tr>
+<td><code>%RECV_PRE%</code></td>
+<td>31</td>
+</tr>
+<tr>
+<td><code>%RECV_PRM%</code></td>
+<td>32</td>
+</tr>
+<tr>
+<td><code>%RECV_PRO%</code></td>
+<td>33</td>
+</tr>
+<tr>
+<td><code>%RECV_TK%</code></td>
+<td>34</td>
+</tr>
+<tr>
+<td><code>%RECV_FS%</code></td>
+<td>35</td>
+</tr>
+<tr>
+<td><code>%RECV_PR%</code></td>
+<td>36</td>
+</tr>
+<tr>
+<td><code>%RECV_KS%</code></td>
+<td>37</td>
+</tr>
+<tr>
+<td><code>%RECV_MP%</code></td>
+<td>38</td>
+</tr>
+<tr>
+<td><code>%RECV_GFL%</code></td>
+<td>39</td>
+</tr>
+<tr>
+<td><code>%RECV_GPD%</code></td>
+<td>40</td>
+</tr>
+<tr>
+<td><code>%RECV_GFLI%</code></td>
+<td>41</td>
+</tr>
+<tr>
+<td><code>%RECV_GPDI%</code></td>
+<td>42</td>
+</tr>
+<tr>
+<td><code>%RECV_IH%</code></td>
+<td>43</td>
+</tr>
+<tr>
+<td><code>%RECV_AC%</code></td>
+<td>44</td>
+</tr>
+<tr>
+<td><code>%RECV_ACS%</code></td>
+<td>45</td>
+</tr>
+<tr>
+<td><code>%RECV_TU%</code></td>
+<td>46</td>
+</tr>
+<tr>
+<td><code>%RECV_TRPL%</code></td>
+<td>47</td>
+</tr>
+<tr>
+<td><code>%RECV_TRS%</code></td>
+<td>48</td>
+</tr>
+<tr>
+<td><code>%RECV_TROP%</code></td>
+<td>49</td>
+</tr>
+<tr>
+<td><code>%RECV_TRCL%</code></td>
+<td>50</td>
+</tr>
+<tr>
+<td><code>%RECV_TROC%</code></td>
+<td>51</td>
+</tr>
+<tr>
+<td><code>%RECV_ST%</code></td>
+<td>52</td>
+</tr>
+<tr>
+<td><code>%RECV_DT%</code></td>
+<td>53</td>
+</tr>
+<tr>
+<td><code>%RECV_FT%</code></td>
+<td>54</td>
+</tr>
+<tr>
+<td><code>%RECV_LVUP%</code></td>
+<td>55</td>
+</tr>
+<tr>
+<td><code>%RECV_PLVUP%</code></td>
+<td>56</td>
+</tr>
+<tr>
+<td><code>%RECV_SKSW%</code></td>
+<td>57</td>
+</tr>
+<tr>
+<td><code>%RECV_PSSW%</code></td>
+<td>58</td>
+</tr>
+<tr>
+<td><code>%RECV_POS%</code></td>
+<td>59</td>
+</tr>
+<tr>
+<td><code>%RECV_KN%</code></td>
+<td>60</td>
+</tr>
+<tr>
+<td><code>%RECV_WN%</code></td>
+<td>61</td>
+</tr>
+<tr>
+<td><code>%RECV_SP%</code></td>
+<td>62</td>
+</tr>
+<tr>
+<td><code>%RECV_ClientLogin%</code></td>
+<td>63</td>
+</tr>
+<tr>
+<td><code>%RECV_CreateNewChar%</code></td>
+<td>64</td>
+</tr>
+<tr>
+<td><code>%RECV_CharDelete%</code></td>
+<td>65</td>
+</tr>
+<tr>
+<td><code>%RECV_CharLogin%</code></td>
+<td>66</td>
+</tr>
+<tr>
+<td><code>%RECV_CharList%</code></td>
+<td>67</td>
+</tr>
+<tr>
+<td><code>%RECV_CharLogout%</code></td>
+<td>68</td>
+</tr>
+<tr>
+<td><code>%RECV_Echo%</code></td>
+<td>69</td>
+</tr>
+<tr>
+<td><code>%RECV_FC%</code></td>
+<td>70</td>
+</tr>
+<tr>
+<td><code>%RECV_CharLoginGate%</code></td>
+<td>71</td>
+</tr>
+<tr>
+<td><code>%RECV_CH%</code></td>
+<td>72</td>
+</tr>
+<tr>
+<td><code>%RECV_PVUP%</code></td>
+<td>73</td>
+</tr>
+<tr>
+<td><code>%RECV_BU%</code></td>
+<td>74</td>
+</tr>
+<tr>
+<td><code>%RECV_ALN%</code></td>
+<td>75</td>
+</tr>
+<tr>
+<td><code>%RECV_GMR%</code></td>
+<td>76</td>
+</tr>
+<tr>
+<td><code>%RECV_LG%</code></td>
+<td>77</td>
+</tr>
+<tr>
+<td><code>%RECV_GD%</code></td>
+<td>78</td>
+</tr>
+<tr>
+<td><code>%RECV_ProduceTime%</code></td>
+<td>79</td>
+</tr>
+<tr>
+<td><code>%RECV_KICKPLAYER%</code></td>
+<td>80</td>
+</tr>
+<tr>
+<td><code>%RECV_STALLSTART%</code></td>
+<td>81</td>
+</tr>
+<tr>
+<td><code>%RECV_STALLEND%</code></td>
+<td>82</td>
+</tr>
+<tr>
+<td><code>%RECV_STALLBROWSE%</code></td>
+<td>83</td>
+</tr>
+<tr>
+<td><code>%RECV_STALLBUY%</code></td>
+<td>84</td>
+</tr>
+<tr>
+<td><code>%RECV_ONLINESHOP%</code></td>
+<td>85</td>
+</tr>
+<tr>
+<td><code>%RECV_ONLINESHOP_END%</code></td>
+<td>86</td>
+</tr>
+<tr>
+<td><code>%RECV_ONLINESHOP_IN%</code></td>
+<td>87</td>
+</tr>
+<tr>
+<td><code>%RECV_ONLINESHOP_BUY%</code></td>
+<td>88</td>
+</tr>
+<tr>
+<td><code>%RECV_MACADD%</code></td>
+<td>89</td>
+</tr>
+<tr>
+<td><code>%RECV_TWNEWBANK%</code></td>
+<td>90</td>
+</tr>
+<tr>
+<td><code>%CHAR_PROFILE_OPENFLG%</code></td>
+<td>8486</td>
+</tr>
+<tr>
+<td><code>%CHAR_PROFILE_SELLFLG%</code></td>
+<td>8487</td>
+</tr>
+<tr>
+<td><code>%CHAR_PROFILE_BUYFLG%</code></td>
+<td>8488</td>
+</tr>
+<tr>
+<td><code>%CHAR_PROFILE_ABOUTFLG%</code></td>
+<td>8489</td>
+</tr>
+<tr>
+<td><code>%BattleMetamoCount%</code></td>
+<td>9443</td>
+</tr>
+<tr>
+<td><code>%BattleMetamoImage%</code></td>
+<td>9444</td>
+</tr>
+<tr>
+<td><code>%PetBattleMetamoCount%</code></td>
+<td>8151</td>
+</tr>
+<tr>
+<td><code>%PetBattleMetamoImage%</code></td>
+<td>8152</td>
+</tr>
+<tr>
+<td><code>%CHAR_PROFILE_SELLMSG%</code></td>
+<td>10000</td>
+</tr>
+<tr>
+<td><code>%CHAR_PROFILE_BUYMSG%</code></td>
+<td>10001</td>
+</tr>
+<tr>
+<td><code>%CHAR_PROFILE_ABOUTMSG%</code></td>
+<td>10002</td>
+</tr>
+<tr>
+<td><code>%CHAR_PROFILE_PROFILEMSG%</code></td>
+<td>10003</td>
+</tr>
+<tr>
+<td><code>%战斗状态_无%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%战斗状态_初始化%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%战斗状态_命令等待%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%战斗状态_命令执行%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%战斗状态_战斗%</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>%战斗状态_死亡%</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>%战斗状态_结束%</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>%战斗指令_无%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%战斗指令_防御%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%战斗指令_位置%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%战斗指令_装备%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%战斗指令_攻击%</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>%战斗指令_逃跑%</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>%战斗指令_宠物出场%</code></td>
+<td>7</td>
+</tr>
+<tr>
+<td><code>%战斗指令_宠物收回%</code></td>
+<td>8</td>
+</tr>
+<tr>
+<td><code>%战斗指令_道具%</code></td>
+<td>9</td>
+</tr>
+<tr>
+<td><code>%战斗指令_精灵变身%</code></td>
+<td>3000</td>
+</tr>
+<tr>
+<td><code>%战属_攻吸%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%战属_攻反%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%战属_攻无%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%战属_魔吸%</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>%战属_魔反%</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>%战属_魔无%</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>%战属_毒%</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>%战属_睡%</code></td>
+<td>7</td>
+</tr>
+<tr>
+<td><code>%战属_石%</code></td>
+<td>8</td>
+</tr>
+<tr>
+<td><code>%战属_醉%</code></td>
+<td>9</td>
+</tr>
+<tr>
+<td><code>%战属_乱%</code></td>
+<td>10</td>
+</tr>
+<tr>
+<td><code>%战属_忘%</code></td>
+<td>11</td>
+</tr>
+<tr>
+<td><code>%战属_防增%</code></td>
+<td>12</td>
+</tr>
+<tr>
+<td><code>%战属_攻增%</code></td>
+<td>13</td>
+</tr>
+<tr>
+<td><code>%战属_敏增%</code></td>
+<td>14</td>
+</tr>
+<tr>
+<td><code>%战属_回增%</code></td>
+<td>15</td>
+</tr>
+<tr>
+<td><code>%战属_恢复魔法%</code></td>
+<td>17</td>
+</tr>
+<tr>
+<td><code>%战属_恢复回合%</code></td>
+<td>16</td>
+</tr>
+<tr>
+<td><code>%战属_属转%</code></td>
+<td>18</td>
+</tr>
+<tr>
+<td><code>%战属_慢舞回合%</code></td>
+<td>19</td>
+</tr>
+<tr>
+<td><code>%战属_慢舞值%</code></td>
+<td>20</td>
+</tr>
+<tr>
+<td><code>%战属_舞回合%</code></td>
+<td>21</td>
+</tr>
+<tr>
+<td><code>%战属_等回合%</code></td>
+<td>22</td>
+</tr>
+<tr>
+<td><code>%战属_参数%</code></td>
+<td>23</td>
+</tr>
+<tr>
+<td><code>%战属_增减量%</code></td>
+<td>24</td>
+</tr>
+<tr>
+<td><code>%战属_增减回合%</code></td>
+<td>25</td>
+</tr>
+<tr>
+<td><code>%战属_恢复魔法LV%</code></td>
+<td>26</td>
+</tr>
+<tr>
+<td><code>%战属_地%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%战属_水%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%战属_火%</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>%战属_风%</code></td>
+<td>8</td>
+</tr>
+<tr>
+<td><code>%战属_魔封%</code></td>
+<td>16</td>
+</tr>
+<tr>
+<td><code>%BOUNS_DEFENCE%</code></td>
+<td>20000</td>
+</tr>
+<tr>
+<td><code>%BOUNS_ATTACK%</code></td>
+<td>20001</td>
+</tr>
+<tr>
+<td><code>%BOUNS_AGILITY%</code></td>
+<td>20002</td>
+</tr>
+<tr>
+<td><code>%BOUNS_MAGIC%</code></td>
+<td>20003</td>
+</tr>
+<tr>
+<td><code>%BOUNS_RECOVERY%</code></td>
+<td>20004</td>
+</tr>
+<tr>
+<td><code>%BOUNS_HP%</code></td>
+<td>20005</td>
+</tr>
+<tr>
+<td><code>%BOUNS_FORCEPOINT%</code></td>
+<td>20006</td>
+</tr>
+<tr>
+<td><code>%BOUNS_LUCK%</code></td>
+<td>20007</td>
+</tr>
+<tr>
+<td><code>%BOUNS_CHARM%</code></td>
+<td>20008</td>
+</tr>
+<tr>
+<td><code>%BOUNS_POISON%</code></td>
+<td>20009</td>
+</tr>
+<tr>
+<td><code>%BOUNS_SLEEP%</code></td>
+<td>20010</td>
+</tr>
+<tr>
+<td><code>%BOUNS_STONE%</code></td>
+<td>20011</td>
+</tr>
+<tr>
+<td><code>%BOUNS_DRUNK%</code></td>
+<td>20012</td>
+</tr>
+<tr>
+<td><code>%BOUNS_CONFUSION%</code></td>
+<td>20013</td>
+</tr>
+<tr>
+<td><code>%BOUNS_AMNESIA%</code></td>
+<td>20014</td>
+</tr>
+<tr>
+<td><code>%BOUNS_CRITICAL%</code></td>
+<td>20015</td>
+</tr>
+<tr>
+<td><code>%BOUNS_COUNTER%</code></td>
+<td>20016</td>
+</tr>
+<tr>
+<td><code>%BOUNS_HITRATE%</code></td>
+<td>20017</td>
+</tr>
+<tr>
+<td><code>%BOUNS_AVOID%</code></td>
+<td>20018</td>
+</tr>
+<tr>
+<td><code>%BOUNS_STAMINA%</code></td>
+<td>20019</td>
+</tr>
+<tr>
+<td><code>%BOUNS_DEX%</code></td>
+<td>20020</td>
+</tr>
+<tr>
+<td><code>%BOUNS_INTELLIGENCE%</code></td>
+<td>20021</td>
+</tr>
+<tr>
+<td><code>%BOUNS_ADM%</code></td>
+<td>20022</td>
+</tr>
+<tr>
+<td><code>%BOUNS_RSS%</code></td>
+<td>20023</td>
+</tr>
+<tr>
+<td><code>%BOUNS_LOYALTY%</code></td>
+<td>20024</td>
+</tr>
+<tr>
+<td><code>%CHAR_TYPELUANPC%</code></td>
+<td>82</td>
+</tr>
+<tr>
+<td><code>%TECH_None%</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>%TECH_NormalAttack%</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>%TECH_NormalGuard%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%TECH_ContinuationAttack%</code></td>
+<td>16</td>
+</tr>
+<tr>
+<td><code>%TECH_CrossCounter%</code></td>
+<td>42</td>
+</tr>
+<tr>
+<td><code>%TECH_Parameter%</code></td>
+<td>17</td>
+</tr>
+<tr>
+<td><code>%TECH_SpiracleShot%</code></td>
+<td>18</td>
+</tr>
+<tr>
+<td><code>%TECH_Heal_Magic%</code></td>
+<td>45</td>
+</tr>
+<tr>
+<td><code>%TECH_Attack_Magic%</code></td>
+<td>46</td>
+</tr>
+<tr>
+<td><code>%TECH_Reflection_Physics%</code></td>
+<td>51</td>
+</tr>
+<tr>
+<td><code>%TECH_Absorb_Physics%</code></td>
+<td>52</td>
+</tr>
+<tr>
+<td><code>%TECH_Ineffective_Physics%</code></td>
+<td>53</td>
+</tr>
+<tr>
+<td><code>%TECH_Reflection_Magic%</code></td>
+<td>55</td>
+</tr>
+<tr>
+<td><code>%TECH_Absorb_Magic%</code></td>
+<td>54</td>
+</tr>
+<tr>
+<td><code>%TECH_Ineffective_Magic%</code></td>
+<td>56</td>
+</tr>
+<tr>
+<td><code>%TECH_BodyGuard%</code></td>
+<td>40</td>
+</tr>
+<tr>
+<td><code>%TECH_Dorain%</code></td>
+<td>47</td>
+</tr>
+<tr>
+<td><code>%TECH_LpRecovery%</code></td>
+<td>57</td>
+</tr>
+<tr>
+<td><code>%TECH_StatusChange%</code></td>
+<td>48</td>
+</tr>
+<tr>
+<td><code>%TECH_StatusRecover%</code></td>
+<td>49</td>
+</tr>
+<tr>
+<td><code>%TECH_NormalAttack%</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>%TECH_NormalGuard%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>%TECH_Revive%</code></td>
+<td>50</td>
+</tr>
+<tr>
+<td><code>%TECH_Treat_Type%</code></td>
+<td>58</td>
+</tr>
+<tr>
+<td><code>%TECH_Reverse_Type%</code></td>
+<td>59</td>
+</tr>
+<tr>
+<td><code>%TECH_SpecialGuard%</code></td>
+<td>43</td>
+</tr>
+<tr>
+<td><code>%TECH_MagicGuard%</code></td>
+<td>44</td>
+</tr>
+<tr>
+<td><code>%TECH_Mikawashi%</code></td>
+<td>41</td>
+</tr>
+<tr>
+<td><code>%TECH_Consentration%</code></td>
+<td>60</td>
+</tr>
+<tr>
+<td><code>%TECH_Forcecut%</code></td>
+<td>23</td>
+</tr>
+<tr>
+<td><code>%TECH_GuardBreak%</code></td>
+<td>22</td>
+</tr>
+<tr>
+<td><code>%TECH_Steal%</code></td>
+<td>64</td>
+</tr>
+<tr>
+<td><code>%TECH_Death%</code></td>
+<td>73</td>
+</tr>
+<tr>
+<td><code>%TECH_StatusAttack%</code></td>
+<td>74</td>
+</tr>
+<tr>
+<td><code>%TECH_EquipBreakAttack%</code></td>
+<td>75</td>
+</tr>
+<tr>
+<td><code>%TECH_GoldAttack%</code></td>
+<td>76</td>
+</tr>
+<tr>
+<td><code>%TECH_EnergyDrain%</code></td>
+<td>77</td>
+</tr>
+<tr>
+<td><code>%TECH_Bomb%</code></td>
+<td>78</td>
+</tr>
+<tr>
+<td><code>%TECH_Sacrifice%</code></td>
+<td>79</td>
+</tr>
+<tr>
+<td><code>%TECH_BloodAttack%</code></td>
+<td>80</td>
+</tr>
+<tr>
+<td><code>%TECH_Summon%</code></td>
+<td>81</td>
+</tr>
+<tr>
+<td><code>%TECH_Position%</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>%TECH_RandomShot%</code></td>
+<td>24</td>
+</tr>
+<tr>
+<td><code>%TECH_Assassin%</code></td>
+<td>26</td>
+</tr>
+<tr>
+<td><code>%TECH_PanicAttack%</code></td>
+<td>25</td>
+</tr>
+<tr>
+<td><code>%TECH_EarthQuake%</code></td>
+<td>82</td>
+</tr>
+<tr>
+<td><code>%TECH_Dance%</code></td>
+<td>66</td>
+</tr>
+<tr>
+<td><code>%TECH_DefUp%</code></td>
+<td>67</td>
+</tr>
+<tr>
+<td><code>%TECH_DefDown%</code></td>
+<td>68</td>
+</tr>
+<tr>
+<td><code>%TECH_AtkUp%</code></td>
+<td>69</td>
+</tr>
+<tr>
+<td><code>%TECH_AtkDown%</code></td>
+<td>70</td>
+</tr>
+<tr>
+<td><code>%TECH_AglUp%</code></td>
+<td>71</td>
+</tr>
+<tr>
+<td><code>%TECH_AglDown%</code></td>
+<td>72</td>
+</tr>
+<tr>
+<td><code>%TECH_Ranbu%</code></td>
+<td>27</td>
+</tr>
+<tr>
+<td><code>%TECH_AttackAll%</code></td>
+<td>28</td>
+</tr>
+<tr>
+<td><code>%TECH_DetectEnemy%</code></td>
+<td>29</td>
+</tr>
+<tr>
+<td><code>%TECH_UrgentAllowance%</code></td>
+<td>30</td>
+</tr>
+<tr>
+<td><code>%TECH_UrgentMedic%</code></td>
+<td>31</td>
+</tr>
+<tr>
+<td><code>%TECH_IndirectStatusAttack%</code></td>
+<td>32</td>
+</tr>
+<tr>
+<td><code>%TECH_AxeBomber%</code></td>
+<td>33</td>
+</tr>
+<tr>
+<td><code>%TECH_UltimateAttack%</code></td>
+<td>34</td>
+</tr>
+<tr>
+<td><code>%TECH_PickPocket%</code></td>
+<td>35</td>
+</tr>
+<tr>
+<td><code>%TECH_RcvUp%</code></td>
+<td>36</td>
+</tr>
+<tr>
+<td><code>%TECH_Parrying%</code></td>
+<td>37</td>
+</tr>
+<tr>
+<td><code>%TECH_ThrowItem%</code></td>
+<td>38</td>
+</tr>
+<tr>
+<td><code>%TECH_Provocation%</code></td>
+<td>39</td>
+</tr>
+<tr>
+<td><code>%TECH_DelayAttack%</code></td>
+<td>2500</td>
+</tr>
+<tr>
+<td><code>%TECH_Wattack%</code></td>
+<td>2501</td>
+</tr>
+<tr>
+<td><code>%TECH_FullBodyGuard%</code></td>
+<td>2502</td>
+</tr>
+<tr>
+<td><code>%TECH_FirstAttack%</code></td>
+<td>2503</td>
+</tr>
+<tr>
+<td><code>%TECH_Copy%</code></td>
+<td>2505</td>
+</tr>
+<tr>
+<td><code>%TECH_Madmax%</code></td>
+<td>2506</td>
+</tr>
+<tr>
+<td><code>%TECH_Acid%</code></td>
+<td>2600</td>
+</tr>
+<tr>
+<td><code>%TECH_MonWind%</code></td>
+<td>2601</td>
+</tr>
+<tr>
+<td><code>%TECH_Barrier%</code></td>
+<td>2602</td>
+</tr>
+<tr>
+<td><code>%TECH_BattleMetamo%</code></td>
+<td>2510</td>
+</tr>
+<tr>
+<td><code>%TECH_Rider%</code></td>
+<td>2507</td>
+</tr>
+<tr>
+<td><code>%TECH_RiderPet%</code></td>
+<td>2507</td>
+</tr>
+<tr>
+<td><code>%TECH_RiderBreak%</code></td>
+<td>2508</td>
+</tr>
+<tr>
+<td><code>%TECH_MagicMissile%</code></td>
+<td>2509</td>
+</tr>
+<tr>
+<td><code>%TECH_LvSet%</code></td>
+<td>2603</td>
+</tr>
+<tr>
+<td><code>%TECH_LevelDown%</code></td>
+<td>2603</td>
+</tr>
+<tr>
+<td><code>%TECH_BlastWave%</code></td>
+<td>4000</td>
+</tr>
+<tr>
+<td><code>%TECH_UsableThrowItem%</code></td>
+<td>10000</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../setup%E9%85%8D%E7%BD%AE%E9%94%AE/" class="btn btn-neutral float-left" title="Setup配置键"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../%E5%B8%B8%E9%87%8F-big5/" class="btn btn-neutral float-right" title="常量 big5">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../setup%E9%85%8D%E7%BD%AE%E9%94%AE/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../%E5%B8%B8%E9%87%8F-big5/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
