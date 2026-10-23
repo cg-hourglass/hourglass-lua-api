@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://cg-hourglass.github.io/hourglass-lua-api/systemmail/guide/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>系统奖励邮件 - hourglass-gmsv Lua 脚本引擎</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u7cfb\u7edf\u5956\u52b1\u90ae\u4ef6";
+        var mkdocs_page_input_path = "systemmail/guide.md";
+        var mkdocs_page_url = "/hourglass-lua-api/systemmail/guide/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> hourglass-gmsv Lua 脚本引擎
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">首页</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">NL 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/BankV1/">BankV1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/Charset/">Charset</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/ClockId/">ClockId</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/CreateAccount/">CreateAccount</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/CreateArgNpc/">CreateArgNpc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/CreateCharacter/">CreateCharacter</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/CreateNpc/">CreateNpc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/DelNpc/">DelNpc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/DeleteCharacter/">DeleteCharacter</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/GetErrorStr/">GetErrorStr</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegAfterBattleExitEvent/">RegAfterBattleExitEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegAfterWarpEvent/">RegAfterWarpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegAgentBattleCommandEvent/">RegAgentBattleCommandEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegAgentDespawnEvent/">RegAgentDespawnEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegAgentSpawnEvent/">RegAgentSpawnEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegAvatarExpiredEvent/">RegAvatarExpiredEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattleActionEvent/">RegBattleActionEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattleExitEvent/">RegBattleExitEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattleGetProfitEvent/">RegBattleGetProfitEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattleNewTurnStartEvent/">RegBattleNewTurnStartEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattleNextEnemyEvent/">RegBattleNextEnemyEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattleOverEvent/">RegBattleOverEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattlePVPMaxHpEvent/">RegBattlePVPMaxHpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattleSkillExpEvent/">RegBattleSkillExpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattleStartEvent/">RegBattleStartEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegBattleSurpriseEvent/">RegBattleSurpriseEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegCharActionEvent/">RegCharActionEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegChessReplayEndEvent/">RegChessReplayEndEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegDamageCalculateEvent/">RegDamageCalculateEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegDropEvent/">RegDropEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegEquipChangedEvent/">RegEquipChangedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegEquipmentLevelEvent/">RegEquipmentLevelEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegFpConsumeEvent/">RegFpConsumeEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegGetExpEvent/">RegGetExpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegGetLoginPointEvent/">RegGetLoginPointEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegGetNextLevelExpEvent/">RegGetNextLevelExpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegHeadCoverEvent/">RegHeadCoverEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegItemDurabilityChangedEvent/">RegItemDurabilityChangedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegItemMaxDurabilityChangedEvent/">RegItemMaxDurabilityChangedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegItemOverLapEvent/">RegItemOverLapEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegItemString/">RegItemString</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegLevelUpEvent/">RegLevelUpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegLoginEvent/">RegLoginEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegLoginGateEvent/">RegLoginGateEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegLogoutEvent/">RegLogoutEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegMakeItemStringEvent/">RegMakeItemStringEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegMergeItemEvent/">RegMergeItemEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegNpcCreatedEvent/">RegNpcCreatedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegPartyEvent/">RegPartyEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegPetEquipCheckEvent/">RegPetEquipCheckEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegPetGainedEvent/">RegPetGainedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegPetLevelUpEvent/">RegPetLevelUpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegPetRideImageEvent/">RegPetRideImageEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegProductSkillExpEvent/">RegProductSkillExpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegRightClickEvent/">RegRightClickEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegSealEvent/">RegSealEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegSecondTickEvent/">RegSecondTickEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegShutDownEvent/">RegShutDownEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegStallTradeEvent/">RegStallTradeEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegTalkEvent/">RegTalkEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegTechOptionEvent/">RegTechOptionEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegTitleChangedEvent/">RegTitleChangedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegVSEnemyCreateEvent/">RegVSEnemyCreateEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/RegWarpEvent/">RegWarpEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/SetArgNpc/">SetArgNpc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/SetRemoteNpc/">SetRemoteNpc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/TimeMs/">TimeMs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nl/Ver/">Ver</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">NLG 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/AvatarGrant/">AvatarGrant</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/AvatarGrants/">AvatarGrants</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/AvatarRevoke/">AvatarRevoke</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/CanTalk/">CanTalk</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/CharLook/">CharLook</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/ChatStyleColor/">ChatStyleColor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/ChatStyleHello/">ChatStyleHello</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/ChatStyleReady/">ChatStyleReady</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/CheckInFront/">CheckInFront</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/CheckTalkRange/">CheckTalkRange</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/DischargeParty/">DischargeParty</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/DropPlayer/">DropPlayer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/FindFloorChars/">FindFloorChars</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/FindFloorWarps/">FindFloorWarps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/FindNpcByName/">FindNpcByName</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/FindNpcByPos/">FindNpcByPos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/FindUser/">FindUser</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/FromUtf8/">FromUtf8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetAvatarParts/">GetAvatarParts</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetFloorPets/">GetFloorPets</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetFrontChar/">GetFrontChar</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetGameTime/">GetGameTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetIp/">GetIp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetMAC/">GetMAC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetMapName/">GetMapName</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetMapPlayer/">GetMapPlayer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetMapPlayerNum/">GetMapPlayerNum</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetMessage/">GetMessage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetOfflineEndTime/">GetOfflineEndTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetOfflineStartTime/">GetOfflineStartTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetOfflineStatus/">GetOfflineStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetOnLinePlayer/">GetOnLinePlayer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetStallConfig/">GetStallConfig</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetStallGoods/">GetStallGoods</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetStallItemPrice/">GetStallItemPrice</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetStallList/">GetStallList</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetStallPetPrice/">GetStallPetPrice</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetStallStatus/">GetStallStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/GetString/">GetString</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/LocalizeUtf8/">LocalizeUtf8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/MapEffect/">MapEffect</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/MoveItem/">MoveItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/Rand/">Rand</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/ResolveChatStyle/">ResolveChatStyle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SendGraphEvent/">SendGraphEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SetAction/">SetAction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SetAvatarParts/">SetAvatarParts</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SetChatStyles/">SetChatStyles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SetHeadAnime/">SetHeadAnime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SetHeadIcon/">SetHeadIcon</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SetMapName/">SetMapName</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SetObj/">SetObj</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SetOfflinePlayer/">SetOfflinePlayer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SetPal/">SetPal</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SetShowName/">SetShowName</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SetStallOffline/">SetStallOffline</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/ShowTalked/">ShowTalked</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/ShowWindowTalked/">ShowWindowTalked</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SortItem/">SortItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/StallBuy/">StallBuy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/StallStart/">StallStart</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SystemMessage/">SystemMessage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/SystemMessageToMap/">SystemMessageToMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/Talk/">Talk</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/TalkToCli/">TalkToCli</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/TalkToFloor/">TalkToFloor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/Talked/">Talked</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/ToUtf8/">ToUtf8</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/UpChar/">UpChar</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/Update_Party/">Update Party</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/WalkMove/">WalkMove</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/Walkable/">Walkable</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/WarpDestination/">WarpDestination</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/WatchBattle/">WatchBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/WindowTalked/">WindowTalked</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nlg/c/">C</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Char 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/AddGold/">AddGold</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/AddItemLimit/">AddItemLimit</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/AddPet/">AddPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/AddSkill/">AddSkill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/CanAddItemLimit/">CanAddItemLimit</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/CheckTitle/">CheckTitle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/ClrClrEvt/">ClrClrEvt</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/ClrEvtEnd/">ClrEvtEnd</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/ClrEvtNow/">ClrEvtNow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/DelItem/">DelItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/DelPet/">DelPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/DelSkill/">DelSkill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/DelSlotPet/">DelSlotPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/DischargeParty/">DischargeParty</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/DropPet/">DropPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/EndEvent/">EndEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/FeverStart/">FeverStart</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/FeverStop/">FeverStop</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/FindItemId/">FindItemId</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/FindTitleIndex/">FindTitleIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetBagCapacity/">GetBagCapacity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetBagSlotRange/">GetBagSlotRange</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetBattleIndex/">GetBattleIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetCharPointer/">GetCharPointer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetCurrentBattleActionCount/">GetCurrentBattleActionCount</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetCurrentBattleTechActionCount/">GetCurrentBattleTechActionCount</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetData/">GetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetGuildID/">GetGuildID</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetGuildTitleID/">GetGuildTitleID</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetHouseItem/">GetHouseItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetHousePet/">GetHousePet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetItemIndex/">GetItemIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetItemRef/">GetItemRef</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetPartyMember/">GetPartyMember</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetPartyMode/">GetPartyMode</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetPet/">GetPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetPetDye/">GetPetDye</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetPetStatusString/">GetPetStatusString</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetPoolItem/">GetPoolItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetPoolPet/">GetPoolPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetSkillExp/">GetSkillExp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetSkillID/">GetSkillID</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetSkillLevel/">GetSkillLevel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetSkillMaxLevel/">GetSkillMaxLevel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetSkillNextExp/">GetSkillNextExp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetTechId/">GetTechId</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GetTitle/">GetTitle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GiveItem/">GiveItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GiveItemWithPos/">GiveItemWithPos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GivePet/">GivePet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/GiveRecipe/">GiveRecipe</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/HasGuild/">HasGuild</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/HaveItem/">HaveItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/HavePet/">HavePet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/HaveSkill/">HaveSkill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/IsEventEnd/">IsEventEnd</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/IsEventNow/">IsEventNow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/IsFeverTime/">IsFeverTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/ItemNum/">ItemNum</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/ItemSlot/">ItemSlot</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/JoinParty/">JoinParty</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/LevelExp/">LevelExp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/LevelExpAt/">LevelExpAt</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/ListTitles/">ListTitles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/MoveItemChecked/">MoveItemChecked</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/NowEvent/">NowEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/PartyNum/">PartyNum</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/PetNum/">PetNum</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/Save/">Save</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SelectTitle/">SelectTitle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetAlbumFlag/">SetAlbumFlag</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetBonusEncountRate/">SetBonusEncountRate</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetData/">SetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetEvtEnd/">SetEvtEnd</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetEvtNow/">SetEvtNow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetItemPutEvent/">SetItemPutEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetLoopEvent/">SetLoopEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetPartyNPC/">SetPartyNPC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetPostOverEvent/">SetPostOverEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetPreOverEvent/">SetPreOverEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetSkillExp/">SetSkillExp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetSkillLevel/">SetSkillLevel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetTalkedEvent/">SetTalkedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetWalkPostEvent/">SetWalkPostEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetWalkPreEvent/">SetWalkPreEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/SetWindowTalkedEvent/">SetWindowTalkedEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/Transfer/">Transfer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/TransferItem/">TransferItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../char/Warp/">Warp</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Battle 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/ActionSelect/">ActionSelect</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/DelDefaultWinEvent/">DelDefaultWinEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/Encount/">Encount</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/ExitBattle/">ExitBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/FinishPlayerBattle/">FinishPlayerBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetBattleCharacterStatus/">GetBattleCharacterStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetBattleFieldAttribute/">GetBattleFieldAttribute</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetBattleMode/">GetBattleMode</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetCurrentBattle/">GetCurrentBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetEntryPosition/">GetEntryPosition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetGainMode/">GetGainMode</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetMod/">GetMod</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetNextBattle/">GetNextBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetNoRisk/">GetNoRisk</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetPlayIndex/">GetPlayIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetTargetSelect/">GetTargetSelect</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetTurn/">GetTurn</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetType/">GetType</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetUseFpByTechId/">GetUseFpByTechId</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/GetWinSide/">GetWinSide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/IsBattleSurprise/">IsBattleSurprise</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/IsBossBattle/">IsBossBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/IsUsing/">IsUsing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/IsWaitingCommand/">IsWaitingCommand</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/JoinBattle/">JoinBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/PVE/">PVE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/PVP/">PVP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/PetActionSelect/">PetActionSelect</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/SetBattleCharacterStatus/">SetBattleCharacterStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/SetBattleFieldAttribute/">SetBattleFieldAttribute</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/SetGainMode/">SetGainMode</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/SetMod/">SetMod</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/SetNextBattle/">SetNextBattle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/SetNoRisk/">SetNoRisk</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/SetType/">SetType</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/SetWinEvent/">SetWinEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/UseTech/">UseTech</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../battle/UseTechById/">UseTechById</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Pet 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/AddSkill/">AddSkill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/ArtRank/">ArtRank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/DelSkill/">DelSkill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/FullArtRank/">FullArtRank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/GetGetableItemList/">GetGetableItemList</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/GetOwner/">GetOwner</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/GetRider/">GetRider</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/GetSkill/">GetSkill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/GetStatus/">GetStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/GetStealableItem/">GetStealableItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/GetUUID/">GetUUID</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/IsPet/">IsPet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/Kill/">Kill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/LevelUp/">LevelUp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/ReBirth/">ReBirth</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/SetArtRank/">SetArtRank</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/SetGetableItemList/">SetGetableItemList</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/SetStatus/">SetStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/SetStealableItem/">SetStealableItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/TradePet/">TradePet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../pet/UpPet/">UpPet</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Item 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/CanEquip/">CanEquip</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/GetData/">GetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/GetStatusString/">GetStatusString</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/GetStatusStringById/">GetStatusStringById</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/Kill/">Kill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/KillByIndex/">KillByIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/MakeItemAndRegist/">MakeItemAndRegist</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/SetData/">SetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/SetTimeLimit/">SetTimeLimit</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/TradeItem/">TradeItem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../item/UpItem/">UpItem</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Obj 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/GetCharIndex/">GetCharIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/GetDelTime/">GetDelTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/GetFloor/">GetFloor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/GetMap/">GetMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/GetObject/">GetObject</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/GetType/">GetType</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/GetX/">GetX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/GetY/">GetY</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/SetDelTime/">SetDelTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/SetFloor/">SetFloor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/SetMap/">SetMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/SetType/">SetType</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/SetX/">SetX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../obj/SetY/">SetY</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Map 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/guide/">说明</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/demo/">演示</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/DelLuaMap/">DelLuaMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/DumpLuaMap/">DumpLuaMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/GetAvailablePos/">GetAvailablePos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/GetDungeonExpireTime/">GetDungeonExpireTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/GetImage/">GetImage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/GetMapSize/">GetMapSize</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/MakeCopyMap/">MakeCopyMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/MakeMazeMap/">MakeMazeMap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../map/SetImage/">SetImage</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Field 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../field/guide/">说明</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../field/Get/">Get</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../field/Set/">Set</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Foreach 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../foreach/Enemy/">Enemy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../foreach/Item/">Item</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../foreach/Npc/">Npc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../foreach/Object/">Object</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../foreach/Pet/">Pet</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../foreach/Player/">Player</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../foreach/Warp/">Warp</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Data 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/EnemyGetData/">EnemyGetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/EnemyGetIndex/">EnemyGetIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/EnemyTempGetData/">EnemyTempGetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/EnemyTempGetIndex/">EnemyTempGetIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/ItemsetGetData/">ItemsetGetData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/ItemsetGetIndex/">ItemsetGetIndex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/ItemsetGetRandomIntData/">ItemsetGetRandomIntData</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/JobInfo/">JobInfo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/SkillInfo/">SkillInfo</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/TechAreaAt/">TechAreaAt</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/TechAreas/">TechAreas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data/TechInfo/">TechInfo</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Setup 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../setup/Get/">Get</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../setup/Set/">Set</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SQL 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sql/Query/">Query</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Protocol 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../protocol/guide/">说明</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../protocol/AddPacket/">AddPacket</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../protocol/GetCharByFd/">GetCharByFd</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../protocol/OnRecv/">OnRecv</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../protocol/RawSend/">RawSend</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../protocol/Send/">Send</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../protocol/SendLuaCustomPacket/">SendLuaCustomPacket</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Offline 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../offline/GetOfflineEndTime/">GetOfflineEndTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../offline/GetOfflineStartTime/">GetOfflineStartTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../offline/GetOfflineStatus/">GetOfflineStatus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../offline/OfflineLogin/">OfflineLogin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../offline/OfflineLogout/">OfflineLogout</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../offline/SetOfflineEndTime/">SetOfflineEndTime</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../offline/SetOfflineLoopEvent/">SetOfflineLoopEvent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../offline/SetOfflinePlayer/">SetOfflinePlayer</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Agent 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../agent/guide/">说明</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../agent/Create/">Create</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../agent/Delete/">Delete</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../agent/Despawn/">Despawn</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../agent/Get/">Get</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../agent/GetMeta/">GetMeta</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../agent/Info/">Info</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../agent/IsAgent/">IsAgent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../agent/IsAgentOf/">IsAgentOf</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../agent/JoinParty/">JoinParty</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../agent/List/">List</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../agent/ListSpawned/">ListSpawned</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../agent/SetMeta/">SetMeta</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../agent/Spawn/">Spawn</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../agent/UseTech/">UseTech</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Debug 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../debug/OfflineLogin/">OfflineLogin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../debug/Snapshot/">Snapshot</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bank 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../bank/AddPage/">AddPage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../bank/CheckAddPages/">CheckAddPages</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../bank/GetItemSlotRange/">GetItemSlotRange</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../bank/GetPetSlotRange/">GetPetSlotRange</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../bank/Open/">Open</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Crypto 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crypto/HmacSha256Hex/">HmacSha256Hex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crypto/RandHex/">RandHex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crypto/RandInt/">RandInt</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crypto/Sha256Hex/">Sha256Hex</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Chess 库</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../chess/Capacity/">Capacity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../chess/EncodeMovie/">EncodeMovie</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../chess/Play/">Play</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../chess/Playing/">Playing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../chess/RoundDone/">RoundDone</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../chess/Simulate/">Simulate</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../chess/Status/">Status</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../chess/Stop/">Stop</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SystemMail 库</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">系统奖励邮件</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_2">发送与查询</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">投递与通知</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_4">公告与管理员</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ActiveDeliveries/">ActiveDeliveries</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../AdminCapabilities/">AdminCapabilities</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../AudienceFields/">AudienceFields</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../BeginDelivery/">BeginDelivery</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../CompleteDelivery/">CompleteDelivery</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Configure/">Configure</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../CopyAnnouncementDraft/">CopyAnnouncementDraft</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../CreateDraft/">CreateDraft</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../DeliveryState/">DeliveryState</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../DiscardDraft/">DiscardDraft</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../DrainChanges/">DrainChanges</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../EditDraft/">EditDraft</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../EndDelivery/">EndDelivery</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Get/">Get</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../GetAnnouncement/">GetAnnouncement</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ItemTemplatePreview/">ItemTemplatePreview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../List/">List</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ListAnnouncementJobs/">ListAnnouncementJobs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../MarkRead/">MarkRead</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../PauseAnnouncement/">PauseAnnouncement</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../PrepareAnnouncement/">PrepareAnnouncement</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../PrepareDraft/">PrepareDraft</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Preview/">Preview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../PreviewAudience/">PreviewAudience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../PublishAnnouncement/">PublishAnnouncement</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ResumeAnnouncement/">ResumeAnnouncement</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../SaveDraft/">SaveDraft</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Send/">Send</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ShowCourier/">ShowCourier</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../StepAnnouncement/">StepAnnouncement</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Summary/">Summary</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../UpdateAnnouncementContent/">UpdateAnnouncementContent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../WithdrawAnnouncement/">WithdrawAnnouncement</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">附录</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendix/%E6%95%B0%E5%80%BC%E5%9E%8B/">数值型</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendix/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendix/%E5%B8%83%E5%B0%94%E5%9E%8B/">布尔型</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendix/%E5%87%BD%E6%95%B0%E5%9E%8B/">函数型</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendix/%E8%A1%A8/">表</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendix/%E5%AF%B9%E8%B1%A1index/">对象index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendix/%E9%81%93%E5%85%B7index/">道具index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendix/%E6%88%98%E6%96%97index/">战斗index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendix/%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97/">扩展模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendix/%E4%BA%8B%E4%BB%B6%E6%80%BB%E8%A1%A8/">事件总表</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendix/setup%E9%85%8D%E7%BD%AE%E9%94%AE/">Setup配置键</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendix/%E5%B8%B8%E9%87%8F/">常量</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../appendix/%E5%B8%B8%E9%87%8F-big5/">常量 big5</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">hourglass-gmsv Lua 脚本引擎</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">SystemMail 库</li>
+      <li class="breadcrumb-item active">系统奖励邮件</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="_1">系统奖励邮件</h1>
+<p>系统邮件不占用好友名片槽。奖励支持金币与最多二十条拆分后的道具附件，整封领取，
+每条附件需要一个新背包空格，不自动合并到已有堆叠。通知可以没有任何奖励。
+发送、阅读、呼叫与实际发放是不同动作；打开界面、播放动画都不代表已经领取。</p>
+<p>所有失败统一返回 <code>nil, code, detail</code>；Configure 和 MarkRead 成功为 <code>1</code>，
+其余成功为表。常见错误有 BAD_ARGS、TEXT、LIMIT、TOO_BIG、INVALID_ITEM、
+KEY_CONFLICT、NOT_FOUND、NO_REWARD、EXPIRED、STATE、MAP、BUSY、BAG_SPACE、
+GOLD_LIMIT、DB、FORBIDDEN、OWNER_SERVER、CONFLICT。BAG_SPACE 的 detail 为
+<code>{required_slots,free_slots}</code>；OWNER_SERVER 的 detail 为 <code>{dispatch_server_number}</code>。</p>
+<h2 id="_2">发送与查询</h2>
+<pre><code class="language-lua">assert(SystemMail.Configure{name='System',title='Rewards',graphic=0,
+  courier_graphic=101000,courier_effect=0,audience_fields={}})
+local result,code,detail=SystemMail.Send(
+  {cdkey=account,regist_number=regist},
+  {key='maintenance:2026-10-19',title='Maintenance reward',body='Thank you.',
+   items={{item_id=item_template,amount=5}},gold=1000})
+</code></pre>
+<p>图号与道具模板必须取目标服务器实际可用资源；示例不能替代资源核验。
+title 最长48个运行编码字节，body 最长1024个字节，不截断或替换不可表示文字。
+key 为1..128个可打印ASCII字节，在同一系统发件人与确切收件角色内去重。
+相同规范化参数返回原 id 和 existing=true，内容冲突 KEY_CONFLICT；过期或已撤回
+也不会重新生成奖励。删除角色后的邮件保留原业务键，发送同键不会重新开放奖励。</p>
+<p>Summary 的定位字段为 latest_unread_id/latest_pending_id。List 的 anchor_id 必须
+属于本人且可见，与 cursor 互斥，从定位项开始有界返回，不自动标记已读。
+Get 的 opts 为 <code>{attachment_page=1}</code>，一页最多10条摘要；Preview 返回
+<code>{id,index,tooltip}</code>，不会返回完整奖励存档，也不占假背包槽。</p>
+<h2 id="_3">投递与通知</h2>
+<p>player/actor 是当前真人角色的整数索引；handle 是仅服务器持有的不透明字符串。
+BeginDelivery/DeliveryState 返回 <code>{id,handle,state,ready_at,depart_at,expires_at}</code>，
+均为服务器 Unix 秒。这里 expires_at 是表现资源 TTL；奖励期限另用 mail_expires_at。
+实际完成后 depart_at 从实际成功时间加 depart_seconds 计算，并限制在资源 TTL 内。</p>
+<p>受信任 Lua 服务实现 CallCourier，调用 BeginDelivery、ShowCourier，并在共享
+事件分发器的有界 tick 中读取 DeliveryState，到 ready_at 才 CompleteDelivery，
+到 depart_at 再 EndDelivery。没有自动发奖循环。脚本重载以 ActiveDeliveries
+接续原 handle，不重新 Begin；资源过期或角色失效会安全清理，不因清理发奖。
+原生玩家单附件宠邮、技能要求、宠物栏和 Loop 不参与系统奖励。</p>
+<p>DrainChanges 返回 <code>{entries}</code>，每项 <code>{char_index,reason}</code>，按具体真人会话合并；
+由 Lua 通过现有推送发送 changed。它只是有界内存失效提示，角色复用不继承旧事件，
+不保证跨进程可靠通知；界面仍应低频只读核实。</p>
+<h2 id="_4">公告与管理员</h2>
+<p>selector 明确 source=saved 或 online_local；saved 使用已保存值，支持离线；
+online_local 仅代表本服当前真人。recipient_unit 为 character（默认）或 account；
+account 固定该账号所有命中角色中 RegistNumber 最小者。where 支持 all/any/not、
+eq/ne/lt/lte/gt/gte/in/exists，最多4层、32个叶子、每个in最多100值。
+未知字段与类型拒绝，缺失值不当0，ne也不匹配缺失值。全量必须显式 match_all=true。
+扩展字段只接受启动配置的 <code>{alias,scope,key,value_type}</code>，scope 为 account/character，
+value_type 为 integer/string；账号键由服务增加 #。离线字段从已保存记录读取。</p>
+<pre><code class="language-lua">local selector={source='saved',recipient_unit='character',
+  where={field='character.level',op='gte',value=20}}
+local draft=assert(SystemMail.CreateDraft(gm,{key='gm:notice:1',title='Notice',
+  body='Maintenance at 22:00.',selector=selector}))
+assert(SystemMail.PrepareDraft(gm,draft.id))
+-- Trusted bounded tick: StepAnnouncement(draft.id,{limit=100}) until ready.
+-- After reviewing the fixed recipient count:
+assert(SystemMail.PublishAnnouncement(draft.id))
+</code></pre>
+<p>管理员逐请求校验真人会话与管理员字段；客户端隐藏按钮不承担权限控制。
+CreateDraft/SaveDraft 使用扁平 <code>{key,title,body,selector,items,gold,expires_at}</code>，
+PrepareAnnouncement 使用 <code>{key,selector,mail}</code>。GetAnnouncement 返回原始 mail
+模板与当前展示文案 current_title/current_body；发布后仅文案可改，不重置已读，
+后续发送仍使用原始模板。名单 ready 后不因升级、下线或字段变化重算。</p>
+<p>创建、保存和更正文案在写入前校验最终详情的单帧编码预算，并为后续计数、版本、
+时间和最长撤回原因预留空间。纯文本的字节上限仍为1024，编码转义使最终回包超限
+时返回 TOO_BIG，不先写入无法读取的草稿，不截断内容。列表每项仅含 id、key、state、
+current_title、dispatch_server_number、source、updated_at、recipient_count、counts，
+不含正文、奖励或 selector；实际条数还受整页编码预算限制，以 next_cursor 续查。
+原始 mail 模板和当前正文分别保留在单封任务详情里。</p>
+<p>任务只由 dispatch_server_number 对应服务器写入；OWNER_SERVER 提示切服，
+不自动接管。ListAnnouncementJobs 默认本服活动任务；管理员可显式 scope=all
+分页浏览。counts 包含 total、pending、sent、skipped、error、withdraw_pending，
+及 withdrawn_count、retained_read_count、retained_claimed_count、already_withdrawn_count。
+withdrawn 表示处理结束，可以同时存在已读/已领取的保留邮件。</p>
+<p>撤回严格为未读 AND 未领取；已读未领取仍可领，已发放奖励不扣回。判定使用当前
+角色所属服务器已处理的状态；未知持有服保持待处理。已生成邮件随确切角色转移，
+原名单保留选择身份，撤回以 mail_id 指向的当前收件身份判定；未发送部分不重定向。
+发信结果未知时，撤回先用固定业务键核实已经生成的邮件并保存名单引用，不能把
+尚未链接的已生成邮件当成未发送。登录和摘要同步也会处理这种情况。</p>
+<p>条件组合保留比较字段是否存在这一信息：普通 ANY 可由已知分支匹配，NOT 只有在
+整个子树的比较依赖都存在时才可取反，包括双重 NOT；条件重排不会改变这一规则。
+显式 exists 本身始终有定义，可以用于明确匹配字段存在或缺失。</p>
+<p>奖励完成内存发放后，即使普通保存报错仍为 claimed，正常后续保存可再次写回。
+保存中途退出、部分写入或人工回档不具备跨表回滚或绝对一次保证。角色删除成功后
+邮件保留并标记收件人删除，全部玩家入口拒绝，备份恢复不会自动清标记或重开领取。
+维护时必须按确切角色同时核对邮件数据。离线检查之后的并发登录仍属于既有维护边界。</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../chess/Stop/" class="btn btn-neutral float-left" title="Stop"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ActiveDeliveries/" class="btn btn-neutral float-right" title="ActiveDeliveries">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../chess/Stop/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ActiveDeliveries/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
